@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -8,15 +9,10 @@ public class FormatableText : MonoBehaviour {
     private GameObject linePrefab;
 
     float charWidth;
-    float height;
 
     void Start()
     {
-        charWidth = GetComponentsInChildren<FormatableWord>()[0].GetComponent<RectTransform>().rect.width;
-        height = GetComponentsInChildren<FormatableWord>()[0].GetComponent<RectTransform>().rect.height;
-        Destroy(GetComponentsInChildren<FormatableLine>()[0].gameObject);
         charWidth = 29;
-
         ShowText();
 
     }
@@ -28,7 +24,6 @@ public class FormatableText : MonoBehaviour {
         {
             AddWord(text[i]);
         }
-
     }
 
 
@@ -42,7 +37,6 @@ public class FormatableText : MonoBehaviour {
         FormatableLine currentLine = lines[lines.Length - 1];
 
         {
-
             if (currentLine.CanAdd(word.Length * charWidth))
             {
                 currentLine.AddWord(word);
@@ -52,10 +46,8 @@ public class FormatableText : MonoBehaviour {
                 AddLine();
                 lines = GetComponentsInChildren<FormatableLine>();
                 lines[lines.Length - 1].AddWord(word);
-            }
-              
+            }            
         }
-
     }
 
     private void AddLine()
@@ -69,13 +61,4 @@ public class FormatableText : MonoBehaviour {
         newLine.GetComponent<FormatableLine>().SetWidths(gameObject.GetComponent<RectTransform>().rect.width, charWidth);
     }
 
-    internal static FormatType GetCurrentFormat()
-    {
-        return FormatType.Highlight;
-    }
-
-    internal static Color GetSelectedColor()
-    {
-        return Color.red;
-    }
 }
