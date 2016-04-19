@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SecondPhaseController : MonoBehaviour {
+public class DragAndDropController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

@@ -9,6 +9,9 @@ public class Slot : MonoBehaviour
     public void OnDrop()
     {
         Debug.Log(gameObject.name);
-        DragHandeler.itemBeingDragged.transform.SetParent(transform);      
+        if (DragHandeler.itemBeingDragged){
+            DragHandeler.itemBeingDragged.transform.SetParent(transform);
+        }             
+
     }
 }
