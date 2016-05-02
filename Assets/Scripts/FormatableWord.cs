@@ -8,23 +8,20 @@ public class FormatableWord : MonoBehaviour {
     [SerializeField]
     private Text visibleText;
 
-    [SerializeField]
-    private Image background;
-
 	public void ApplyFormat()
     {
-        switch (FormatableText.GetCurrentFormat())
+        switch (FormatableTextController.GetController().GetCurrentFormat())
         {
             case FormatType.Paint:
-                Text myText = GetComponentsInChildren<Text>()[0];
-                myText.color = FormatableText.GetSelectedColor();
+                Text myText = GetComponentsInChildren<Text>()[1];
+                myText.color = Color.green;
                 break;
             case FormatType.Highlight:
-                GetComponentsInChildren<Image>()[0].color = FormatableText.GetSelectedColor();
+                GetComponentsInChildren<Image>()[0].color = FormatableTextController.GetSelectedColor();
                 break;
             case FormatType.Clear:
                 GetComponentsInChildren<Image>()[0].color = new Color32(0, 0, 0, 0);
-                GetComponentsInChildren<Text>()[0].color = Color.black;
+                GetComponentsInChildren<Text>()[1].color = Color.black;
                 break;
 
 

@@ -3,6 +3,6 @@ using System.Collections;
 
 public enum FormatType  {
 
-    Paint, Highlight, Clear
+    Paint, Highlight, Clear, NoOne
 
 }
