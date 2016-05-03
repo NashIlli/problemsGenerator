@@ -18,6 +18,10 @@ public class FormatableLine : MonoBehaviour {
     {
         this.maxWidth = maxWidth;
         this.charWidth = charWidht;
+
+        Debug.Log("Max width: " + maxWidth);
+        Debug.Log("Char width: " + charWidht);
+        Debug.Log("Entran: " + maxWidth/charWidht);
     }
     
     internal bool isEmpty()
@@ -29,14 +33,13 @@ public class FormatableLine : MonoBehaviour {
     {
         currentWidht += charWidth * word.Length;
         currentChilds++;
-        float old = gameObject.GetComponent<RectTransform>().rect.height;
         GameObject newWord = Instantiate(wordPrefab.gameObject);
+        newWord.GetComponent<FormatableWord>().SetText(word);
         newWord.transform.SetParent(gameObject.transform, true);
         newWord.transform.localPosition = Vector3.zero;
         newWord.GetComponent<RectTransform>().offsetMax = Vector2.zero;
         newWord.GetComponent<RectTransform>().offsetMin = Vector2.zero;
         newWord.transform.localScale = Vector3.one;
-        newWord.GetComponent<FormatableWord>().SetText(word);
      
     }
 
@@ -51,5 +54,22 @@ public class FormatableLine : MonoBehaviour {
         string toReturn = last.GetText();
         Destroy(GetComponentsInChildren<FormatableWord>()[GetComponentsInChildren<FormatableWord>().Length - 1].gameObject);
         return toReturn;
+    }
+
+    internal FormatableWord AddWord(FormatableWord formatableWord)
+    {
+        currentWidht += charWidth * formatableWord.GetText().Length;
+        currentChilds++;
+        GameObject newWord = Instantiate(wordPrefab.gameObject);
+        newWord.GetComponent<FormatableWord>().SetText(formatableWord.GetText());
+        newWord.GetComponent<FormatableWord>().SetFontColor(formatableWord.GetFontColor());
+        newWord.GetComponent<FormatableWord>().SetHighlightColor(formatableWord.GetHighlightColor());
+        newWord.GetComponent<FormatableWord>().SetText(formatableWord.GetText());
+        newWord.transform.SetParent(gameObject.transform, true);
+        newWord.transform.localPosition = Vector3.zero;
+        newWord.GetComponent<RectTransform>().offsetMax = Vector2.zero;
+        newWord.GetComponent<RectTransform>().offsetMin = Vector2.zero;
+        newWord.transform.localScale = Vector3.one;
+        return newWord.GetComponent<FormatableWord>();
     }
 }

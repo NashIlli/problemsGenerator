@@ -10,7 +10,6 @@ public class DragHandeler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Transform startParent;
     public GameObject board;
 
-
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (gameObject.GetComponentsInChildren<PostIt>().Length != 0) gameObject.GetComponentsInChildren<PostIt>()[0].OnEndEdit();
@@ -31,18 +30,33 @@ public class DragHandeler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         itemBeingDragged = null;
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        if (transform.parent != board.transform) {
-            Debug.Log("dist");
+        if (startParent == board.transform && transform.parent != board.transform)
+        {
+            transform.SetParent(board.transform);
             transform.position = startPosition;
          }
-        if(transform.position.x < board.transform.position.x || transform.position.x > board.transform.position.x + board.GetComponent<RectTransform>().rect.size.x)
+
+        /*  Debug.Log("transform pos: " + transform.position);
+          Debug.Log("board pos: " + board.transform.position);*/
+        Vector3 boardPosition = board.transform.localPosition;
+        Rect boardSize = board.GetComponent<RectTransform>().rect;
+        if(transform.localPosition.x < boardPosition.x - boardSize.width || transform.localPosition.x > boardPosition.x + boardSize.width)
+        {
+             transform.position = startPosition;
+        }
+        if (transform.localPosition.y > boardPosition.y + boardSize.height || transform.localPosition.y < boardPosition.y - boardSize.height)
         {
             transform.position = startPosition;
-        }
-        if (transform.position.y > board.transform.position.y + board.GetComponent<RectTransform>().rect.size.y)
-        {
 
         }
+
+        /*   Debug.Log("rect: " + board.GetComponent<RectTransform>().rect);
+           Debug.Log("postion: " + transform.position);
+           Debug.Log("contains: " + board.GetComponent<RectTransform>().rect.Contains(transform.position));
+           if (!board.GetComponent<RectTransform>().rect.Contains(transform.position))
+           {
+               transform.position = startPosition;
+           }*/
     }
 
 }

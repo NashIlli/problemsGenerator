@@ -8,21 +8,22 @@ public class FormatableText : MonoBehaviour {
     [SerializeField]
     private GameObject linePrefab;
 
-    float charWidth;
+    float charWidth = 29;
 
     void Start()
     {
+/*
         charWidth = 29;
-        ShowText();
-
+*/
+     //   ShowText(GameManager.GetManager().GetText());
     }
 
-    private void ShowText()
+    public void ShowText(string text)
     {
-        string[] text = GameManager.GetText().Split(' ');
-        for (int i = 0; i < text.Length; i++)
+        string[] splittedText = text.Split(' ');
+        for (int i = 0; i < splittedText.Length; i++)
         {
-            AddWord(text[i]);
+            AddWord(splittedText[i]);
         }
     }
 
@@ -61,4 +62,28 @@ public class FormatableText : MonoBehaviour {
         newLine.GetComponent<FormatableLine>().SetWidths(gameObject.GetComponent<RectTransform>().rect.width, charWidth);
     }
 
+    public FormatableWord AddWord(FormatableWord formatableWord)
+    {
+        FormatableLine[] lines = GetComponentsInChildren<FormatableLine>();
+        if (lines.Length == 0)
+        {
+            AddLine();
+            lines = GetComponentsInChildren<FormatableLine>();
+        }
+        FormatableLine currentLine = lines[lines.Length - 1];
+
+        {
+            if (currentLine.CanAdd(formatableWord.GetText().Length * charWidth))
+            {
+                return currentLine.AddWord(formatableWord);
+
+            }
+            else
+            {
+                AddLine();
+                lines = GetComponentsInChildren<FormatableLine>();
+                return lines[lines.Length - 1].AddWord(formatableWord);
+            }
+        }
+    }
 }

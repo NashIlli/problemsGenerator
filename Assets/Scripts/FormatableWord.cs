@@ -37,8 +37,30 @@ public class FormatableWord : MonoBehaviour {
     
     }
 
+    internal void SetFontColor(Color color)
+    {
+        Text myText = GetComponentsInChildren<Text>()[1];
+        myText.color = color;
+    }
+
+    internal void SetHighlightColor(Color color)
+    {
+        GetComponentsInChildren<Image>()[0].color = color;
+
+    }
+
     internal string GetText()
     {
         return gameObject.GetComponent<Text>().text;
+    }
+
+    public Color GetFontColor()
+    {
+        return GetComponentsInChildren<Text>()[1].color;
+    }
+
+    public Color GetHighlightColor()
+    {
+        return GetComponentsInChildren<Image>()[0].color;
     }
 }

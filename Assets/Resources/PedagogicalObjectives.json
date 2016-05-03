@@ -1,0 +1,39 @@
+{
+    "pedagogialObjectives": [
+        {
+            "name": "Contar",
+            "schemas": [
+                {
+				    "title": "Contemos juntos",
+                    "variables": [
+                        "s1",
+                        "s2",
+                        "s3",
+                        "v1",
+                        "v2",
+                        "v3",
+                        "o1",
+                        "n1",
+                        "n2",
+                        "n3"
+                    ],
+                    "baseText": "s1 v1 n1 o1, s2 v2 n2 y s3 v3 n3",
+                    "baseQuestion": "¿Cuántos o1 tienen en total?",
+                    "baseAnswer": "n1+n2+n3",
+					"minNumber": 10,
+					"maxNumber": 100,
+					"canBeNegative":  false,
+					"subjects": ["Martín", "Lucas", "María"],
+                    "elements": ["caramelos", "chupetines"],
+                    "places": ["Jardín"],
+                    "containers": ["jarrón","balde"],
+                    "verbs": [
+                        "tiene",
+                        "posee",
+                        "cuenta con"
+                    ]
+                }
+            ]  
+        }
+    ]
+}
