@@ -24,7 +24,7 @@
 					"maxNumber": 100,
 					"canBeNegative":  false,
 					"subjects": ["Martín", "Lucas", "María"],
-                    "elements": ["caramelos", "chupetines"],
+                    "elements": ["elements_0", "elements_1"],
                     "places": ["Jardín"],
                     "containers": ["jarrón","balde"],
                     "verbs": [
