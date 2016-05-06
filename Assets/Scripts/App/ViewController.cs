@@ -30,6 +30,7 @@ namespace Assets.Scripts.App
         {
             mainMenu.SetActive(false);
             problemPanel.SetActive(true);
+            
         }
 
         public static ViewController GetController()

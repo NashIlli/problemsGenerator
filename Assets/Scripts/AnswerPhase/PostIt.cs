@@ -7,14 +7,9 @@ namespace Assets.Scripts.AnswerPhase
     public class PostIt : MonoBehaviour, IBeginDragHandler
     {
 
-        bool mouseClicksStarted = false; int mouseClicks = 0; float mouseTimerLimit = .25f;
+        bool mouseClicksStarted = false; int mouseClicks = 0; float mouseTimerLimit = 1f;
 
         public Image cover;
-
-        void Update()
-        {
-      
-        }
 
         public void OnClick()
         {
@@ -30,6 +25,7 @@ namespace Assets.Scripts.AnswerPhase
 
         private void checkMouseDoubleClick()
         {
+            Debug.Log("check doble clcik");
             if (mouseClicks > 1)
             {
                 Debug.Log("Double Clicked");

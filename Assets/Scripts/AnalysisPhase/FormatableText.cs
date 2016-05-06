@@ -37,6 +37,11 @@ namespace Assets.Scripts.AnalysisPhase
             FormatableLine currentLine = lines[lines.Length - 1];
 
             {
+                if (word == "\n")
+                {
+                    AddLine();
+                    return;
+                }
                 if (currentLine.CanAdd(word.Length * charWidth))
                 {
                     currentLine.AddWord(word);
@@ -50,7 +55,7 @@ namespace Assets.Scripts.AnalysisPhase
             }
         }
 
-        private void AddLine()
+        internal void AddLine()
         {
             GameObject newLine = Instantiate(linePrefab);
             newLine.transform.SetParent(gameObject.transform, true);

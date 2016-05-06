@@ -14,10 +14,10 @@ namespace Assets.Scripts.AnalysisPhase
             {
                 case FormatType.Paint:
                     Text myText = GetComponentsInChildren<Text>()[1];
-                    myText.color = new Color32(255, 152, 0, 255);
+                    myText.color = FormatableTextController.GetController().GetLetterColorSelected();
                     break;
                 case FormatType.Highlight:
-                    GetComponentsInChildren<Image>()[0].color = new Color32(104, 192, 255, 255);
+                    GetComponentsInChildren<Image>()[0].color = FormatableTextController.GetController().GetHighlightColorSelected();
                     break;
                 case FormatType.Clear:
                     GetComponentsInChildren<Image>()[0].color = new Color32(0, 0, 0, 0);

@@ -12,8 +12,10 @@ namespace Assets.Scripts.MainMenu
 
         public void OnClickTicButton()
         {
-            GameManager.GetManager().SetSelectedObjective(objectivesDropdown.value);
+            PlayClickSound();
             ViewController.GetController().ShowProblemPanel();
+            GameManager.GetManager().SetSelectedObjective(objectivesDropdown.value);
+            
         }
 
         public void OnClickLevel(int level)

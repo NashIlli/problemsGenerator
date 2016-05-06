@@ -25,7 +25,7 @@ namespace Assets.Scripts.App
 
         public string GetText()
         {
-            return concreteText;
+            return concreteText + " \n " + concreteQuestion;
         }
 
         public string GetTitle()

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.AnalysisPhase;
+﻿using System.Globalization;
+using Assets.Scripts.AnalysisPhase;
 using Assets.Scripts.App;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,6 +9,9 @@ namespace Assets.Scripts.AnswerPhase
 {
     public class AnswerPhaseController : MonoBehaviour
     {
+
+        private static AnswerPhaseController answerPhaseController;
+
         [SerializeField] private FormatableText formatableText;
         [SerializeField] private Image[] draggableImages;
         [SerializeField] private GameObject boardPanel;
@@ -15,15 +19,17 @@ namespace Assets.Scripts.AnswerPhase
         [SerializeField] private Text questioText;
         [SerializeField] private InputField answerInputField;
 
+        void Awake()
+        {
+            if (answerPhaseController == null) answerPhaseController = this;
+            else if (this != answerPhaseController) Destroy(this);
+        }
+
 
 
         void OnEnable()
         {
-            FormatableWord[] formatableWords = ProblemController.GetController().GetFormattedText().GetComponentsInChildren<FormatableWord>();
-            for (int i = 0; i < formatableWords.Length; i++)
-            {
-                formatableText.AddWord(formatableWords[i]).GetComponent<EventTrigger>().enabled = false;
-            }
+            
 
             string[] elementsToDrag = ProblemController.GetController().GetElementsToDrag();
             var j = 0;
@@ -57,6 +63,25 @@ namespace Assets.Scripts.AnswerPhase
             ProblemController.GetController().CheckAnswer(float.Parse(answerInputField.text));
         }
 
+        public static AnswerPhaseController GetController()
+        {
+            return answerPhaseController;
+        }
 
+
+        public void ShowText(FormatableText formattedText)
+        {
+            FormatableLine[] formatableLines = formattedText.GetComponentsInChildren<FormatableLine>();
+            for (int i = 0; i < formatableLines.Length; i++)
+            {
+                if (i == formatableLines.Length - 1) formatableText.AddLine();
+                FormatableWord[] formatableWords = formatableLines[i].GetComponentsInChildren<FormatableWord>();
+                for (int j = 0; j < formatableWords.Length; j++)
+                {
+                    formatableText.AddWord(formatableWords[j]).GetComponent<EventTrigger>().enabled = false;
+
+                }
+            }
+        }
     }
 }

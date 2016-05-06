@@ -48,7 +48,7 @@ namespace Assets.Scripts.App
             List<string> objectivesList = new List<string>(pedagogicalObjectives.Length);
             for (int i = 0; i < pedagogicalObjectives.Length; i++)
             {
-                if(pedagogicalObjectives[i].GetLevels().Contains(i)) objectivesList.Add(pedagogicalObjectives[i].name);
+                if(pedagogicalObjectives[i].GetLevels().Contains(level)) objectivesList.Add(pedagogicalObjectives[i].name);
             }
             return objectivesList;
         }
@@ -58,7 +58,11 @@ namespace Assets.Scripts.App
             this.selectedObjective = selectedObjective;
             currentProblem = pedagogicalObjectives[selectedObjective].GenerateProblem();
             ProblemController.GetController().SetProblem(currentProblem);
+        }
 
+        public Problem GetCurrentProblem()
+        {
+            return currentProblem;
         }
     }
 }

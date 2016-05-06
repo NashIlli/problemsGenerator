@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.AnalysisPhase;
+using Assets.Scripts.AnswerPhase;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,11 @@ namespace Assets.Scripts.App
             else if (this != problemController) Destroy(this);
         }
 
+        void Start()
+        {
+           // SetProblem(GameManager.GetManager().GetCurrentProblem());
+        }
+
 
         public void SetProblem(Problem problem)
         {
@@ -41,6 +47,7 @@ namespace Assets.Scripts.App
         {
             analysisPhase.SetActive(false);
             answerPhase.SetActive(true);
+            AnswerPhaseController.GetController().ShowText(formatableText);
         }
 
         public static ProblemController GetController()
