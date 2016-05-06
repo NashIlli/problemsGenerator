@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 924959ee1ae92464d8ed93edbdb23dcc
-timeCreated: 1462541567
+guid: 6b12391923f465e47825aa4cde1c9d54
+timeCreated: 1462545383
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: ox-23_0
-    21300002: ox-23_1
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -40,7 +38,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,37 +49,7 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: ox-23_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1441
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -512, y: 384.5}
-        - {x: -512, y: -384.5}
-        - {x: 512, y: -384.5}
-        - {x: 512, y: 384.5}
-    - name: ox-23_1
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 1920
-        height: 1441
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -512, y: 384.5}
-        - {x: -512, y: -384.5}
-        - {x: 512, y: -384.5}
-        - {x: 512, y: 384.5}
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
