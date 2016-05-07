@@ -18,10 +18,6 @@ namespace Assets.Scripts.AnalysisPhase
         {
             this.maxWidth = maxWidth;
             this.charWidth = charWidht;
-
-            Debug.Log("Max width: " + maxWidth);
-            Debug.Log("Char width: " + charWidht);
-            Debug.Log("Entran: " + maxWidth/charWidht);
         }
     
         internal bool isEmpty()

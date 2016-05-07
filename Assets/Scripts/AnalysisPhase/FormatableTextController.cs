@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.App;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,8 @@ namespace Assets.Scripts.AnalysisPhase
             if (formatableTextController == null) formatableTextController = this;
             else if (this != formatableTextController) Destroy(this);
         }
+
+       
 
         internal FormatType GetCurrentFormat()
         {

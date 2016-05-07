@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.AnalysisPhase;
 using Assets.Scripts.AnswerPhase;
+using Assets.Scripts.Sound;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,22 +26,23 @@ namespace Assets.Scripts.App
 
         void Start()
         {
-           // SetProblem(GameManager.GetManager().GetCurrentProblem());
+            ShowTextAnalysisPhase();
         }
 
 
-        public void SetProblem(Problem problem)
+        internal void SetProblem(Problem problem = null)
         {
+            if (problem == null) problem = GameManager.GetManager().GetCurrentProblem();
             currentProblem = problem;
             titleText.text = currentProblem.GetTitle();
             formatableText.ShowText(currentProblem.GetText());
-            ShowTextAnalysisPhase();
         }
 
         public void ShowTextAnalysisPhase()
         {
             analysisPhase.SetActive(true);
             answerPhase.SetActive(false);
+            answerPhase.GetComponent<AnswerPhaseController>().DestroyOldLines();
         }
 
         public void ShowAnswerPhase()
@@ -72,7 +74,29 @@ namespace Assets.Scripts.App
 
         public void CheckAnswer(float answer)
         {
-            Debug.Log("Correct ? " + currentProblem.CheckAnswer(answer));
+            if (currentProblem.CheckAnswer(answer))
+            {
+                ViewController.GetController().LoadLevelCompleted();
+            } else {
+                SoundController.GetController().PlayFailureSound();
+            }
+        }
+
+        public void OnClickMenuButton()
+        {
+            PlayClickSoud();
+            ViewController.GetController().ShowInGameMenu();
+        }
+
+        public void OnClickHintButton()
+        {
+            PlayClickSoud();
+            ViewController.GetController().ShowHint();
+        }
+
+        public void PlayClickSoud()
+        {
+            SoundController.GetController().PlayClickSound();
         }
     }
 }

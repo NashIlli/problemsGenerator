@@ -9,11 +9,16 @@ namespace Assets.Scripts.MainMenu
     {
 
         [SerializeField] private Dropdown objectivesDropdown;
+        [SerializeField] private Button ticButton;
+
+        void Start()
+        {
+            ticButton.interactable = false;
+        }
 
         public void OnClickTicButton()
         {
             PlayClickSound();
-            ViewController.GetController().ShowProblemPanel();
             GameManager.GetManager().SetSelectedObjective(objectivesDropdown.value);
             
         }
@@ -21,6 +26,7 @@ namespace Assets.Scripts.MainMenu
         public void OnClickLevel(int level)
         {
             PlayClickSound();
+            ticButton.interactable = true;
             LoadObjectives(level);
         }
 

@@ -6,17 +6,7 @@
             "schemas": [
                 {
 				    "title": "Contemos juntos",
-                    "variables": [
-                        "s1",
-                        "s2",
-                        "s3",
-                        "v1",
-                        "v2",
-                        "v3",
-                        "o1",
-                        "n1",
-                        "n2",
-                        "n3"
+                    "variables": [ "s1", "s2", "s3", "v1", "v2", "v3", "o1", "n1", "n2", "n3"
                     ],
                     "baseText": "s1 v1 n1 o1, s2 v2 n2 y s3 v3 n3",
                     "baseQuestion": "¿Cuántos o1 tienen en total?",
@@ -25,13 +15,32 @@
 					"maxNumber": 100,
 					"canBeNegative":  false,
 					"subjects": ["Martín", "Lucas", "María"],
-                    "elements": ["elements_0", "elements_1"],
+                    "elements": ["anillos", "zapatos", "libros", "zapallos"],
                     "places": ["Jardín"],
                     "containers": ["jarrón","balde"],
                     "verbs": [
                         "tiene",
                         "posee",
                         "cuenta con"
+                    ]
+                },
+				{
+				    "title": "¡Ayuda para contar!",
+                    "variables": [ "s1", "s2", "s3", "v1", "o1", "c1", "n1", "n2", "n3"],
+                    "baseText": "A s1, s2 y s3 les gusta comer o1 y v1. Un día s1 puso n1 o1 en la c1, s2 puso n2 y s3 puso n3.",
+                    "baseQuestion": "¿Cuántos o1 hay en total en la c1?",
+                    "baseAnswer": "n1+n2+n3",
+					"minNumber": 2,
+					"maxNumber": 10,
+					"canBeNegative":  false,
+					"subjects": ["Martín", "Lucas", "María", "Pedro", "Agustín", "Ignacio", "Jazmín", "Camila", "Irma", "Luciano", "Joaquín", "Aymará"],
+                    "elements": ["frutillas", "damascos", "kiwis", "manzanas"],
+                    "places": ["Jardín"],
+                    "containers": ["caja","bolsa", "mesa"],
+                    "verbs": [
+                        "compartir entre ellos",
+                        "ponerlos en común",
+                        "juntar todos en un mismo lugar"
                     ]
                 }
             ]  

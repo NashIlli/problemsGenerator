@@ -36,7 +36,7 @@ namespace Assets.Scripts.App
                     concreteVariable = MakeConcrete(variable);
                 } while (usedList.Contains(concreteVariable));
 
-                if(variable.Contains("o")) currentElements.Add(concreteVariable);
+                if(variable.Contains("o") || variable.Contains("c")) currentElements.Add(concreteVariable);
 
                 concreteText = concreteText.Replace(variable, concreteVariable);
                 concreteQuestion = concreteQuestion.Replace(variable, concreteVariable);

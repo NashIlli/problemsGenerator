@@ -57,12 +57,20 @@ namespace Assets.Scripts.App
         {
             this.selectedObjective = selectedObjective;
             currentProblem = pedagogicalObjectives[selectedObjective].GenerateProblem();
+            ViewController.GetController().StartProblem();
             ProblemController.GetController().SetProblem(currentProblem);
         }
 
         public Problem GetCurrentProblem()
         {
             return currentProblem;
+        }
+
+        public void GenerateOtherProblem()
+        {
+            ProblemController.GetController().SetProblem(currentProblem);
+            ProblemController.GetController().ShowTextAnalysisPhase();
+
         }
     }
 }

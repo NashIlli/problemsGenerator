@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.App;
+using UnityEngine;
 
 namespace Assets.Scripts.AnalysisPhase
 {
@@ -14,7 +15,6 @@ namespace Assets.Scripts.AnalysisPhase
 /*
         charWidth = 29;
 */
-            //   ShowText(GameManager.GetManager().GetText());
         }
 
         public void ShowText(string text)

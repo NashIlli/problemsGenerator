@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 1f4364a630b67db4a864e443c857a7ff
-timeCreated: 1462539350
+guid: 2015287850a204f4aadab628fc10ea67
+timeCreated: 1462586271
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: flags_0
-    21300002: flags_1
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -40,7 +38,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,41 +49,7 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: flags_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 304
-        height: 201
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -147, y: 97.5}
-        - {x: -149, y: 95.5}
-        - {x: -149, y: -97.5}
-        - {x: 151, y: -97.5}
-        - {x: 151, y: 95.5}
-        - {x: 149, y: 97.5}
-    - name: flags_1
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 0
-        width: 304
-        height: 201
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -151, y: 95.5}
-        - {x: -151, y: -97.5}
-        - {x: 149, y: -97.5}
-        - {x: 149, y: 95.5}
-        - {x: 147, y: 97.5}
-        - {x: -149, y: 97.5}
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
