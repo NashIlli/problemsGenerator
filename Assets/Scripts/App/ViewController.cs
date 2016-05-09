@@ -19,7 +19,6 @@ namespace Assets.Scripts.App
         {
             if (viewController == null) viewController = this;
             else if (viewController != this) Destroy(gameObject);
-            DontDestroyOnLoad(this);
         }
 
         void Start()

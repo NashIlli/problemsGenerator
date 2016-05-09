@@ -25,10 +25,8 @@ namespace Assets.Scripts.AnswerPhase
 
         private void checkMouseDoubleClick()
         {
-            Debug.Log("check doble clcik");
-            if (mouseClicks > 1)
+            if (mouseClicks > 1 && GetComponentInParent<GridLayoutGroup>() == null)
             {
-                Debug.Log("Double Clicked");
                 cover.gameObject.SetActive(false); 
                 gameObject.GetComponentInChildren<InputField>().readOnly = false;
                 gameObject.GetComponentInChildren<InputField>().Select();

@@ -45,7 +45,8 @@
                         "cuenta con"
                     ],
                     "positiveResults": [],
-                    "integerResults": []
+                    "integerResults": [],
+                    "negativeResults": []
                 },
                 {
                     "title": "¡Ayuda para contar!",
@@ -85,7 +86,8 @@
                         "juntar todos en un mismo lugar"
                     ],
                     "positiveResults": [],
-                    "integerResults": []
+                    "integerResults": [],
+                    "negativeResults": []
                 }
             ]
         },
@@ -133,7 +135,8 @@
                         "entregó"
                     ],
                     "positiveResults": [],
-                    "integerResults": []
+                    "integerResults": [],
+                    "negativeResults": []
                 },
                 {
                     "title": "¡Sumemos!",
@@ -165,7 +168,8 @@
                     ],
                     "verbs": [],
                     "positiveResults": [],
-                    "integerResults": []
+                    "integerResults": [],
+                    "negativeResults": []
                 }
             ]
         },
@@ -222,7 +226,8 @@
                         "serruchos",
                         "relojes",
                         "vasos"
-                    ]
+                    ],
+                    "negativeResults": []
                 },
                 {
                     "title": "¡Restemos!",
@@ -252,14 +257,16 @@
                     "positiveResults": [
                         "n1-n2-n3"
                     ],
-                    "integerResults": []
+                    "integerResults": [],
+                    "negativeResults": []
                 }
             ]
         },
         {
             "name": "Sumas y restas combinadas",
             "levels": [
-                3
+                3,
+                4
             ],
             "schemas": [
                 {
@@ -299,7 +306,8 @@
                         "n1-n2",
                         "n1-n2+n3-n4"
                     ],
-                    "integerResults": []
+                    "integerResults": [],
+                    "negativeResults": []
                 }
             ]
         },
@@ -343,7 +351,8 @@
                     "positiveResults": [],
                     "integerResults": [
                         "n1/3"
-                    ]
+                    ],
+                    "negativeResults": []
                 }
             ]
         },
@@ -380,7 +389,123 @@
                     "positiveResults": [
                         "n2-n1-3"
                     ],
+                    "integerResults": [],
+                    "negativeResults": []
+                }
+            ]
+        },
+        {
+            "name": "Multiplicación",
+            "levels": [
+                4
+            ],
+            "schemas": [
+                {
+                    "title": "Juguemos en el patio",
+                    "variables": [
+                        "s1",
+                        "n1",
+                        "n2",
+                        "o1",
+                        "v1"
+                    ],
+                    "baseText": "El patio de s1, en donde juega con su v1, tiene n1 o1 de ancho y n2 de largo.",
+                    "baseQuestion": "¿Cuántas o1 tiene en total el patio de s1?",
+                    "baseAnswer": "n1*n2",
+                    "minNumber": 20,
+                    "maxNumber": 99,
+                    "elements": [
+                        "baldosas"
+                    ],
+                    "places": [],
+                    "containers": [],
+                    "verbs": [
+                        "perro",
+                        "gato",
+                        "mejor amigo"
+                    ],
+                    "positiveResults": [
+                        "n1-50"
+                    ],
+                    "integerResults": [],
+                    "negativeResults": [
+                        "n2-50"
+                    ]
+                },
+                {
+                    "title": "Usando cintas",
+                    "variables": [
+                        "s1",
+                        "n1",
+                        "n2",
+                        "o1",
+                        "c1"
+                    ],
+                    "baseText": "El papá de martín trabaja envolviendo c1. Dijo que por cada regalo se usan n1 o1 y por mes envuelven n2 c1.",
+                    "baseQuestion": "¿Cuántas o1 usan en un mes para envolver c1?",
+                    "baseAnswer": "n1*n2",
+                    "minNumber": 2,
+                    "maxNumber": 99,
+                    "elements": [
+                        "cintas"
+                    ],
+                    "places": [],
+                    "containers": [
+                        "regalos"
+                    ],
+                    "verbs": [
+                        "perro",
+                        "gato",
+                        "mejor amigo"
+                    ],
+                    "positiveResults": [],
+                    "negativeResults": [
+                        "n1-9"
+                    ],
                     "integerResults": []
+                }
+            ]
+        },
+        {
+            "name": "División",
+            "levels": [
+                4
+            ],
+            "schemas": [
+                {
+                    "title": "La c1 de o1",
+                    "variables": [
+                        "s1",
+                        "c1",
+                        "o1",
+                        "n1",
+                        "n2",
+                        "v1"
+                    ],
+                    "baseText": "s1 trabaja en la c1 de o1 de su familia. Ellos v1 n1 o1 cada n2 días.",
+                    "baseQuestion": "¿Cuántos quesos por día se v1?",
+                    "baseAnswer": "n1/n2",
+                    "minNumber": 2,
+                    "maxNumber": 300,
+                    "elements": [
+                        "quesos"
+                    ],
+                    "places": [],
+                    "containers": [
+                        "fábrica"
+                    ],
+                    "verbs": [
+                        "producen",
+                        "hacen",
+                        "elaboran"
+                    ],
+                    "positiveResults": [
+                        "n1-50"
+                    ],
+                    "integerResults": [],
+                    "negativeResults": [
+                        "n2-8"
+                    ]
                 }
             ]
         }

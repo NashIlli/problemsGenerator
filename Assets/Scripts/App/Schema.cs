@@ -18,6 +18,7 @@ namespace Assets.Scripts.App
         public string[] containers;
         public string[] verbs;
         public string[] positiveResults;
+        public string[] negativeResults;
         public string[] integerResults;
 
         public Problem GenerateProblem()
@@ -26,11 +27,13 @@ namespace Assets.Scripts.App
             do
             {
                 List<string> usedList = new List<string>();
+                string concretTitle = title;
                 string concreteText = baseText;
                 string concreteQuestion = baseQuestion;
                 string concreteAnswer = baseAnswer;
                 List<string> currentElements = new List<string>();
                 string[] currentPositiveResults = (string[]) positiveResults.Clone();
+                string[] currentNegativeResults = (string[]) negativeResults.Clone();
                 string[] currentIntegerResults = (string[]) integerResults.Clone();
 
 
@@ -44,14 +47,20 @@ namespace Assets.Scripts.App
 
                     if (variable.Contains("o") || variable.Contains("c")) currentElements.Add(concreteVariable);
 
+                    concretTitle = concretTitle.Replace(variable, concreteVariable);
                     concreteText = concreteText.Replace(variable, concreteVariable);
                     concreteQuestion = concreteQuestion.Replace(variable, concreteVariable);
+                    
                     if (variable.Contains("n"))
                     {
                         concreteAnswer = concreteAnswer.Replace(variable, concreteVariable);
                         for (int i = 0; i < positiveResults.Length; i++)
                         {
                             currentPositiveResults[i] = currentPositiveResults[i].Replace(variable, concreteVariable);
+                        }
+                        for (int i = 0; i < negativeResults.Length; i++)
+                        {
+                            currentNegativeResults[i] = currentNegativeResults[i].Replace(variable, concreteVariable);
                         }
                         for (int i = 0; i < integerResults.Length; i++)
                         {
@@ -62,7 +71,7 @@ namespace Assets.Scripts.App
                     usedList.Add(concreteVariable);
                 }
 
-                toReturn = new Problem(title, concreteText, concreteQuestion, concreteAnswer, currentElements.ToArray(), currentPositiveResults, currentIntegerResults);
+                toReturn = new Problem(concretTitle, concreteText, concreteQuestion, concreteAnswer, currentElements.ToArray(), currentPositiveResults, currentNegativeResults, currentIntegerResults);
             } while (!toReturn.CheckRestrictons());
 
             return toReturn;

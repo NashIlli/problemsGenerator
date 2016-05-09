@@ -12,9 +12,10 @@ namespace Assets.Scripts.App
         private string concreteAnswer;
         private string[] elementsToDrag;
         private string[] positiveResults;
+        private string[] negativeResults;
         private string[] integerResults;
 
-        public Problem(string title,string concreteText, string concreteQuestion, string concreteAnswer, string[] elementsToDrag, string[] positiveResults, string[] integerResults)
+        public Problem(string title,string concreteText, string concreteQuestion, string concreteAnswer, string[] elementsToDrag, string[] positiveResults, string[] negativeResults, string[] integerResults)
         {
             this.title = title;
             this.concreteText = concreteText;
@@ -22,6 +23,7 @@ namespace Assets.Scripts.App
             this.concreteAnswer = concreteAnswer;
             this.elementsToDrag = elementsToDrag;
             this.positiveResults = positiveResults;
+            this.negativeResults = negativeResults;
             this.integerResults = integerResults;
         }
 
@@ -48,7 +50,7 @@ namespace Assets.Scripts.App
 
         public bool CheckAnswer(float answer)
         {
-            return Math.Abs(float.Parse(new Expression(concreteAnswer).Evaluate().ToString()) - answer) < 0.001;
+            return Math.Abs(float.Parse(new Expression(concreteAnswer).Evaluate().ToString()) - answer) < 0.05;
         }
 
         public float GetResult()
@@ -62,6 +64,12 @@ namespace Assets.Scripts.App
             {
                 if (float.Parse(new Expression(positiveResult).Evaluate().ToString()) <= 0) return false;
             }
+
+            foreach (string negativeResult in negativeResults)
+            {
+                if (float.Parse(new Expression(negativeResult).Evaluate().ToString()) >= 0) return false;
+            }
+
             foreach (string integerResult in integerResults)
             {
                 decimal result = decimal.Parse(new Expression(integerResult).Evaluate().ToString());

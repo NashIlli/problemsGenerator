@@ -36,6 +36,20 @@ namespace Assets.Scripts.AnswerPhase
                 );
 		
             panelRectTransform.sizeDelta = sizeDelta;
+            ClampToWindow();
+        }
+
+        void ClampToWindow()
+        {
+            Vector3 pos = transform.parent.localPosition;
+
+            Vector3 minPosition = transform.parent.parent.GetComponent<RectTransform>().rect.min - transform.parent.GetComponent<RectTransform>().rect.min;
+            Vector3 maxPosition = transform.parent.parent.GetComponent<RectTransform>().rect.max - transform.parent.GetComponent<RectTransform>().rect.max;
+
+            pos.x = Mathf.Clamp(transform.parent.GetComponent<RectTransform>().localPosition.x, minPosition.x, maxPosition.x);
+            pos.y = Mathf.Clamp(transform.parent.GetComponent<RectTransform>().localPosition.y, minPosition.y, maxPosition.y);
+
+            transform.parent.GetComponent<RectTransform>().localPosition = pos;
         }
     }
 }

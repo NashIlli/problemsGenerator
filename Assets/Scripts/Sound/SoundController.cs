@@ -18,7 +18,6 @@ namespace Assets.Scripts.Sound{
             else if (soundController != this){
                 Destroy(gameObject);
             }
-            DontDestroyOnLoad(this);
         } 
 
         public void PlayFailureSound(){
