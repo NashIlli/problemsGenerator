@@ -95,11 +95,10 @@ namespace Assets.Scripts.AnswerPhase
             FormatableLine[] formatableLines = formattedText.GetComponentsInChildren<FormatableLine>();
             for (int i = 0; i < formatableLines.Length; i++)
             {
-                if (i == formatableLines.Length - 1) formatableText.AddLine();
                 FormatableWord[] formatableWords = formatableLines[i].GetComponentsInChildren<FormatableWord>();
                 for (int j = 0; j < formatableWords.Length; j++)
                 {
-                    Debug.Log(formatableWords[j].GetText());
+                    if(formatableWords[j].GetText().Length > 0 && formatableWords[j].GetText()[0] == '¿') formatableText.AddLine();
                     formatableText.AddWord(formatableWords[j]).GetComponent<EventTrigger>().enabled = false;
 
                 }

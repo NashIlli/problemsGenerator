@@ -25,12 +25,13 @@ namespace Assets.Scripts.AnalysisPhase
             return GetComponentsInChildren<FormatableWord>().Length == 0;
         }
 
-        internal void AddWord(string word)
+        internal void AddWord(string word, int fontSize)
         {
             currentWidht += charWidth * word.Length;
             currentChilds++;
             GameObject newWord = Instantiate(wordPrefab.gameObject);
             newWord.GetComponent<FormatableWord>().SetText(word);
+            newWord.GetComponent<FormatableWord>().SetFontSize(fontSize);
             newWord.transform.SetParent(gameObject.transform, true);
             newWord.transform.localPosition = Vector3.zero;
             newWord.GetComponent<RectTransform>().offsetMax = Vector2.zero;
@@ -52,12 +53,13 @@ namespace Assets.Scripts.AnalysisPhase
             return toReturn;
         }
 
-        internal FormatableWord AddWord(FormatableWord formatableWord)
+        internal FormatableWord AddWord(FormatableWord formatableWord, int fontSize)
         {
             currentWidht += charWidth * formatableWord.GetText().Length;
             currentChilds++;
             GameObject newWord = Instantiate(wordPrefab.gameObject);
             newWord.GetComponent<FormatableWord>().SetText(formatableWord.GetText());
+            newWord.GetComponent<FormatableWord>().SetFontSize(fontSize);
             newWord.GetComponent<FormatableWord>().SetFontColor(formatableWord.GetFontColor());
             newWord.GetComponent<FormatableWord>().SetHighlightColor(formatableWord.GetHighlightColor());
             newWord.GetComponent<FormatableWord>().SetText(formatableWord.GetText());
