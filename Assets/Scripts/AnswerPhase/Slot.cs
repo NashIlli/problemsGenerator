@@ -6,11 +6,10 @@ namespace Assets.Scripts.AnswerPhase
     {
 
         public void OnDrop()
-        {
-            Debug.Log(gameObject.name);
+        {            
             if (DragHandeler.itemBeingDragged){
                 DragHandeler.itemBeingDragged.transform.SetParent(transform);
-            }             
+            }
 
         }
     }

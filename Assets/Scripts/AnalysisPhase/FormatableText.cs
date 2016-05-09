@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.App;
+using UnityEngine;
 
 namespace Assets.Scripts.AnalysisPhase
 {
@@ -7,14 +8,14 @@ namespace Assets.Scripts.AnalysisPhase
         [SerializeField]
         private GameObject linePrefab;
 
-        float charWidth = 29;
+        public float charWidth;
+        public int fontSize;
 
         void Start()
         {
 /*
         charWidth = 29;
 */
-            //   ShowText(GameManager.GetManager().GetText());
         }
 
         public void ShowText(string text)
@@ -44,13 +45,13 @@ namespace Assets.Scripts.AnalysisPhase
                 }
                 if (currentLine.CanAdd(word.Length * charWidth))
                 {
-                    currentLine.AddWord(word);
+                    currentLine.AddWord(word, fontSize);
 
                 } else
                 {
                     AddLine();
                     lines = GetComponentsInChildren<FormatableLine>();
-                    lines[lines.Length - 1].AddWord(word);
+                    lines[lines.Length - 1].AddWord(word, fontSize);
                 }            
             }
         }
@@ -79,14 +80,14 @@ namespace Assets.Scripts.AnalysisPhase
             {
                 if (currentLine.CanAdd(formatableWord.GetText().Length * charWidth))
                 {
-                    return currentLine.AddWord(formatableWord);
+                    return currentLine.AddWord(formatableWord, fontSize);
 
                 }
                 else
                 {
                     AddLine();
                     lines = GetComponentsInChildren<FormatableLine>();
-                    return lines[lines.Length - 1].AddWord(formatableWord);
+                    return lines[lines.Length - 1].AddWord(formatableWord, fontSize);
                 }
             }
         }

@@ -9,6 +9,7 @@ namespace Assets.Scripts.App
     public class GameManager : MonoBehaviour
     {
         private static GameManager gameManager;
+        private string[] subjects;
         private PedagogicalObjective[] pedagogicalObjectives;
         private Problem currentProblem;
         private int selectedObjective;
@@ -25,10 +26,15 @@ namespace Assets.Scripts.App
             TextAsset JSONstring = Resources.Load("PedagogicalObjectives") as TextAsset;
             JSONNode data = JSON.Parse(JSONstring.text);
 
-            pedagogicalObjectives = new PedagogicalObjective[data["pedagogialObjectives"].Count];
-            for (int i = 0; i < data["pedagogialObjectives"].Count; i++)
+            subjects = new string[data["subjects"].Count];
+            for (int i = 0; i < data["subjects"].Count; i++)
             {
-                pedagogicalObjectives[i] = JsonUtility.FromJson<PedagogicalObjective>(data["pedagogialObjectives"][i].ToString());
+                subjects[i] = data["subjects"][i];
+            }
+            pedagogicalObjectives = new PedagogicalObjective[data["pedagogicalObjectives"].Count];
+            for (int i = 0; i < data["pedagogicalObjectives"].Count; i++)
+            {
+                pedagogicalObjectives[i] = JsonUtility.FromJson<PedagogicalObjective>(data["pedagogicalObjectives"][i].ToString());
             }
         }
 
@@ -53,16 +59,34 @@ namespace Assets.Scripts.App
             return objectivesList;
         }
 
-        public void SetSelectedObjective(int selectedObjective)
+        public void SetSelectedObjective(int level, int selectedObjective)
         {
             this.selectedObjective = selectedObjective;
-            currentProblem = pedagogicalObjectives[selectedObjective].GenerateProblem();
+            List<PedagogicalObjective> currrentPedagogicalObjectives = new List<PedagogicalObjective>();
+            for (int i = 0; i < pedagogicalObjectives.Length; i++)
+            {
+                if (pedagogicalObjectives[i].GetLevels().Contains(level)) currrentPedagogicalObjectives.Add(pedagogicalObjectives[i]);
+            }
+            currentProblem = currrentPedagogicalObjectives[selectedObjective].GenerateProblem();
+            ViewController.GetController().StartProblem();
             ProblemController.GetController().SetProblem(currentProblem);
         }
 
         public Problem GetCurrentProblem()
         {
             return currentProblem;
+        }
+
+        public void GenerateOtherProblem()
+        {
+            ProblemController.GetController().SetProblem(currentProblem);
+            ProblemController.GetController().ShowTextAnalysisPhase();
+
+        }
+
+        public string[] GetSubjects()
+        {
+            return subjects;
         }
     }
 }

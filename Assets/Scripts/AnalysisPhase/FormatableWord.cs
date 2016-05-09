@@ -59,5 +59,13 @@ namespace Assets.Scripts.AnalysisPhase
         {
             return GetComponentsInChildren<Image>()[0].color;
         }
+
+        public void SetFontSize(int fontSize)
+        {
+            gameObject.GetComponent<Text>().fontSize = fontSize;
+            gameObject.GetComponent<Text>().resizeTextMaxSize = fontSize;
+            visibleText.fontSize = fontSize;
+            visibleText.resizeTextMaxSize = fontSize;
+        }
     }
 }
