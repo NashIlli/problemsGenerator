@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using NCalc;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace Assets.Scripts.App
 {
@@ -50,7 +53,8 @@ namespace Assets.Scripts.App
 
         public bool CheckAnswer(float answer)
         {
-            return Math.Abs(float.Parse(new Expression(concreteAnswer).Evaluate().ToString()) - answer) < 0.05;
+            float result = float.Parse(new Expression(concreteAnswer).Evaluate().ToString());
+            return Math.Abs(result - answer) < 0.05;
         }
 
         public float GetResult()
@@ -77,6 +81,14 @@ namespace Assets.Scripts.App
                 if (resto != 0) return false;
             }
             return true;
+        }
+
+        public void AddElements(string[] extraElements)
+        {
+            var z = new string[elementsToDrag.Length + extraElements.Length];
+            elementsToDrag.CopyTo(z, 0);
+            extraElements.CopyTo(z, elementsToDrag.Length);
+            elementsToDrag = z;
         }
     }
 }

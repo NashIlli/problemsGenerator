@@ -1,527 +1,433 @@
 {
-    "pedagogicalObjectives": [
+  "pedagogicalObjectives": [
+    
+
+
+    {
+      "name": "Organización rectangular 2",
+      "levels": [
+        2
+      ],
+      "schemas": [
         {
-            "name": "Contar",
-            "levels": [
-                1,
-                2
-            ],
-            "schemas": [
-                {
-                    "title": "Contemos juntos",
-                    "variables": [
-                        "s1",
-                        "s2",
-                        "s3",
-                        "v1",
-                        "v2",
-                        "v3",
-                        "o1",
-                        "n1",
-                        "n2",
-                        "n3"
-                    ],
-                    "baseText": "s1 v1 n1 o1, s2 v2 n2 y s3 v3 n3",
-                    "baseQuestion": "¿Cuántos o1 tienen en total?",
-                    "baseAnswer": "n1+n2+n3",
-                    "minNumber": 10,
-                    "maxNumber": 100,
-                    "elements": [
-                        "anillos",
-                        "zapatos",
-                        "libros",
-                        "zapallos"
-                    ],
-                    "places": [
-                        "Jardín"
-                    ],
-                    "containers": [
-                        "jarrón",
-                        "balde"
-                    ],
-                    "verbs": [
-                        "tiene",
-                        "posee",
-                        "cuenta con"
-                    ],
-                    "positiveResults": [],
-                    "integerResults": [],
-                    "negativeResults": []
-                },
-                {
-                    "title": "¡Ayuda para contar!",
-                    "variables": [
-                        "s1",
-                        "s2",
-                        "s3",
-                        "v1",
-                        "o1",
-                        "c1",
-                        "n1",
-                        "n2",
-                        "n3"
-                    ],
-                    "baseText": "A s1, s2 y s3 les gusta comer o1 y v1. Un día s1 puso n1 o1 en la c1, s2 puso n2 y s3 puso n3.",
-                    "baseQuestion": "¿Cuántos o1 hay en total en la c1?",
-                    "baseAnswer": "n1+n2+n3",
-                    "minNumber": 2,
-                    "maxNumber": 10,
-                    "elements": [
-                        "frutillas",
-                        "damascos",
-                        "kiwis",
-                        "manzanas"
-                    ],
-                    "places": [
-                        "Jardín"
-                    ],
-                    "containers": [
-                        "caja",
-                        "bolsa",
-                        "mesa"
-                    ],
-                    "verbs": [
-                        "compartir entre ellos",
-                        "ponerlos en común",
-                        "juntar todos en un mismo lugar"
-                    ],
-                    "positiveResults": [],
-                    "integerResults": [],
-                    "negativeResults": []
-                }
-            ]
-        },
-        {
-            "name": "Sumas simples",
-            "levels": [
-                1,
-                2
-            ],
-            "schemas": [
-                {
-                    "title": "Sumando juntos",
-                    "variables": [
-                        "s1",
-                        "s2",
-                        "s3",
-                        "v1",
-                        "v2",
-                        "v3",
-                        "o1",
-                        "n1",
-                        "n2",
-                        "n3"
-                    ],
-                    "baseText": "s2 le v1 n1 o1 a s1. s3 le v2 otras n2. Y, además, s1 se encontró n3. ",
-                    "baseQuestion": "¿Cuántos o1 tiene s1?",
-                    "baseAnswer": "n1+n2+n3",
-                    "minNumber": 2,
-                    "maxNumber": 20,
-                    "elements": [
-                        "espadas",
-                        "estrellas",
-                        "pelotitas",
-                        "rosas",
-                        "nueces"
-                    ],
-                    "places": [],
-                    "containers": [],
-                    "verbs": [
-                        "dio",
-                        "regaló",
-                        "otorgó",
-                        "obsequió",
-                        "dejó",
-                        "entregó"
-                    ],
-                    "positiveResults": [],
-                    "integerResults": [],
-                    "negativeResults": []
-                },
-                {
-                    "title": "¡Sumemos!",
-                    "variables": [
-                        "s1",
-                        "s2",
-                        "o1",
-                        "c1",
-                        "n1",
-                        "n2",
-                        "n3",
-                        "n4"
-                    ],
-                    "baseText": "s1 y sus papas tienen un jardín con c1 de o1. La mamá cuida uno con n1 o1, el papá uno con n2 y s1 uno con n3. s2 les regaló un árbol con n4 o1 que lo plantaron junto a los otros.",
-                    "baseQuestion": "¿Cuántas o1 hay en el jardín?",
-                    "baseAnswer": "n1+n2+n3+n4",
-                    "minNumber": 5,
-                    "maxNumber": 30,
-                    "elements": [
-                        "manzanas",
-                        "bananas",
-                        "peras"
-                    ],
-                    "places": [
-                        "Jardín"
-                    ],
-                    "containers": [
-                        "arboles"
-                    ],
-                    "verbs": [],
-                    "positiveResults": [],
-                    "integerResults": [],
-                    "negativeResults": []
-                }
-            ]
-        },
-        {
-            "name": "Restas simples",
-            "levels": [
-                1,
-                2
-            ],
-            "schemas": [
-                {
-                    "title": "Restando juntos",
-                    "variables": [
-                        "s1",
-                        "s2",
-                        "s3",
-                        "v1",
-                        "v2",
-                        "v3",
-                        "o1",
-                        "n1",
-                        "n2",
-                        "n3",
-                        "n4"
-                    ],
-                    "baseText": "s1 tenía al principio n1 o1. Le v1 n2 a s2 y le v2 n3 a s3. Además v3 n4 más.",
-                    "baseQuestion": "¿Cuántos o1 tiene s1 finalmente?",
-                    "baseAnswer": "n1-n2-n3-n4",
-                    "minNumber": 2,
-                    "maxNumber": 20,
-                    "places": [],
-                    "containers": [],
-                    "verbs": [
-                        "dio",
-                        "regaló",
-                        "otorgó",
-                        "obsequió",
-                        "dejó",
-                        "entregó"
-                    ],
-                    "positiveResults": [
-                        "n1-n2-n3-n4"
-                    ],
-                    "integerResults": [],
-                    "elements": [
-                        "anillos",
-                        "botones",
-                        "libros",
-                        "relojes",
-                        "botones",
-                        "helados",
-                        "huesos",
-                        "quesos",
-                        "serruchos",
-                        "relojes",
-                        "vasos"
-                    ],
-                    "negativeResults": []
-                },
-                {
-                    "title": "¡Restemos!",
-                    "variables": [
-                        "s1",
-                        "s2",
-                        "o1",
-                        "c1",
-                        "n1",
-                        "n2",
-                        "n3"
-                    ],
-                    "baseText": "En un c1 había n1 o1. En la primera parada se bajaron n2 y en la segunda se bajaron otros n3.",
-                    "baseQuestion": "¿Cuántos o1 quedaron en el c1?",
-                    "baseAnswer": "n1-n2-n3",
-                    "minNumber": 5,
-                    "maxNumber": 30,
-                    "elements": [
-                        "pasajeros"
-                    ],
-                    "places": [],
-                    "containers": [
-                        "avión",
-                        "tren"
-                    ],
-                    "verbs": [],
-                    "positiveResults": [
-                        "n1-n2-n3"
-                    ],
-                    "integerResults": [],
-                    "negativeResults": []
-                }
-            ]
-        },
-        {
-            "name": "Sumas y restas combinadas",
-            "levels": [
-                3,
-                4
-            ],
-            "schemas": [
-                {
-                    "title": "Recorriendo lugares",
-                    "variables": [
-                        "c1",
-                        "o1",
-                        "n1",
-                        "n2",
-                        "n3",
-                        "n4",
-                        "n5"
-                    ],
-                    "baseText": "Un c1 arrancó con n1 o1. En la primera parada bajaron n2 y subieron n3. En la segunda bajaron n4 y subieron n5.",
-                    "baseQuestion": "¿Cuántos o1 tiene el c1 luego de la segunda parada?",
-                    "baseAnswer": "n1-n2+n3-n4+n5",
-                    "minNumber": 2,
-                    "maxNumber": 20,
-                    "elements": [
-                        "pasajeros"
-                    ],
-                    "places": [],
-                    "containers": [
-                        "avión",
-                        "tren",
-                        "barco"
-                    ],
-                    "verbs": [
-                        "dio",
-                        "regaló",
-                        "otorgó",
-                        "obsequió",
-                        "dejó",
-                        "entregó"
-                    ],
-                    "positiveResults": [
-                        "n1-n2",
-                        "n1-n2+n3-n4"
-                    ],
-                    "integerResults": [],
-                    "negativeResults": []
-                }
-            ]
-        },
-        {
-            "name": "Repartir",
-            "levels": [
-                3
-            ],
-            "schemas": [
-                {
-                    "title": "Repartiendo con amigos",
-                    "variables": [
-                        "s1",
-                        "s2",
-                        "s3",
-                        "s4",
-                        "n1",
-                        "o1",
-                        "v1"
-                    ],
-                    "baseText": "s1 tiene n1 o1 y quiere v1 todos entre sus tres amigos: s2, s3 y s4.",
-                    "baseQuestion": "¿Cuántos o1 debe darle a cada uno para que tengan igual cantidad?",
-                    "baseAnswer": "n1/3",
-                    "minNumber": 2,
-                    "maxNumber": 30,
-                    "elements": [
-                        "zapallos",
-                        "zanahorias",
-                        "tomates",
-                        "limones",
-                        "relojes",
-                        "huesos",
-                        "zapatos"
-                    ],
-                    "places": [],
-                    "containers": [],
-                    "verbs": [
-                        "repartir",
-                        "distribuir"
-                    ],
-                    "positiveResults": [],
-                    "integerResults": [
-                        "n1/3"
-                    ],
-                    "negativeResults": []
-                }
-            ]
-        },
-        {
-            "name": "Relaciones lineales",
-            "levels": [
-                3
-            ],
-            "schemas": [
-                {
-                    "title": "Cocinando juntos",
-                    "variables": [
-                        "s1",
-                        "c1",
-                        "n1",
-                        "n2",
-                        "o1"
-                    ],
-                    "baseText": "s1 sabe que para hacer una c1 necesita n1 o1. Mañana a la noche recibe a sus amigos y quiere hacer n2 c1s.",
-                    "baseQuestion": "¿Cuántas o1 necesita s1 para hacer n2 c1s?",
-                    "baseAnswer": "n1*n2",
-                    "minNumber": 2,
-                    "maxNumber": 8,
-                    "elements": [
-                        "barras de chocolate"
-                    ],
-                    "places": [],
-                    "containers": [
-                        "mousse"
-                    ],
-                    "verbs": [
-                        ""
-                    ],
-                    "positiveResults": [
-                        "n2-n1-3"
-                    ],
-                    "integerResults": [],
-                    "negativeResults": []
-                }
-            ]
-        },
-        {
-            "name": "Multiplicación",
-            "levels": [
-                4
-            ],
-            "schemas": [
-                {
-                    "title": "Juguemos en el patio",
-                    "variables": [
-                        "s1",
-                        "n1",
-                        "n2",
-                        "o1",
-                        "v1"
-                    ],
-                    "baseText": "El patio de s1, en donde juega con su v1, tiene n1 o1 de ancho y n2 de largo.",
-                    "baseQuestion": "¿Cuántas o1 tiene en total el patio de s1?",
-                    "baseAnswer": "n1*n2",
-                    "minNumber": 20,
-                    "maxNumber": 99,
-                    "elements": [
-                        "baldosas"
-                    ],
-                    "places": [],
-                    "containers": [],
-                    "verbs": [
-                        "perro",
-                        "gato",
-                        "mejor amigo"
-                    ],
-                    "positiveResults": [
-                        "n1-50"
-                    ],
-                    "integerResults": [],
-                    "negativeResults": [
-                        "n2-50"
-                    ]
-                },
-                {
-                    "title": "Usando cintas",
-                    "variables": [
-                        "s1",
-                        "n1",
-                        "n2",
-                        "o1",
-                        "c1"
-                    ],
-                    "baseText": "El papá de martín trabaja envolviendo c1. Dijo que por cada regalo se usan n1 o1 y por mes envuelven n2 c1.",
-                    "baseQuestion": "¿Cuántas o1 usan en un mes para envolver c1?",
-                    "baseAnswer": "n1*n2",
-                    "minNumber": 2,
-                    "maxNumber": 99,
-                    "elements": [
-                        "cintas"
-                    ],
-                    "places": [],
-                    "containers": [
-                        "regalos"
-                    ],
-                    "verbs": [
-                        "perro",
-                        "gato",
-                        "mejor amigo"
-                    ],
-                    "positiveResults": [],
-                    "negativeResults": [
-                        "n1-9"
-                    ],
-                    "integerResults": []
-                }
-            ]
-        },
-        {
-            "name": "División",
-            "levels": [
-                4
-            ],
-            "schemas": [
-                {
-                    "title": "La c1 de o1",
-                    "variables": [
-                        "s1",
-                        "c1",
-                        "o1",
-                        "n1",
-                        "n2",
-                        "v1"
-                    ],
-                    "baseText": "s1 trabaja en la c1 de o1 de su familia. Ellos v1 n1 o1 cada n2 días.",
-                    "baseQuestion": "¿Cuántos quesos por día se v1?",
-                    "baseAnswer": "n1/n2",
-                    "minNumber": 2,
-                    "maxNumber": 300,
-                    "elements": [
-                        "quesos"
-                    ],
-                    "places": [],
-                    "containers": [
-                        "fábrica"
-                    ],
-                    "verbs": [
-                        "producen",
-                        "hacen",
-                        "elaboran"
-                    ],
-                    "positiveResults": [
-                        "n1-50"
-                    ],
-                    "integerResults": [],
-                    "negativeResults": [
-                        "n2-8"
-                    ]
-                }
-            ]
+          "title": "Organizando el espacio",
+          "variables": ["n1_1", "v1_1", "n2_2", "o1_1"],
+          "baseText": "En un campo hay n1_1 parcelas. En cada parcela pueden v1_1 n2_2 o1_1.",
+          "baseQuestions": [
+            "Si están todos las parcelas completas, ¿cuántos o1_1 hay?"
+          ],
+          "baseAnswers": [
+            "n1_1 * n2_2"
+          ],
+          "stringNumbers": [
+            "2,4",
+            "3,4"
+          ],
+          "stringElements": [
+            "caballos,cerdos"
+          ],
+          "stringPlaces": [
+            "campo"
+          ],
+          "stringContainers": [
+            ""
+          ],
+          "stringVerbs": [
+            "comer,alimentarse"
+          ],
+          "extraElements": [
+            "parcelas"
+          ],
+          "positiveResults": [],
+          "integerResults": [],
+          "negativeResults": []
         }
-    ],
-    "subjects": [
-        "Martín",
-        "Lucas",
-        "María",
-        "Pedro",
-        "Agustín",
-        "Bautista",
-        "Jazmín",
-        "Camila",
-        "José",
-        "Luciano",
-        "Joaquín",
-        "Aymará"
-    ]
+      ]},
+    {
+      "name": "Organización rectangular 3",
+      "levels": [
+        3
+      ],
+      "schemas": [
+        {
+          "title": "Organizando el espacio",
+          "variables": ["n1_1", "v1_1", "n2_1", "o1_1"],
+          "baseText": "En un campo hay n1_1 parcelas. En cada parcela pueden v1_1 n2_1 o1_1.",
+          "baseQuestions": [
+            "Si están todos las parcelas completas, ¿cuántos o1_1 hay?"
+          ],
+          "baseAnswers": [
+            "n1_1 * n2_1"
+          ],
+          "stringNumbers": [
+            "3,9"
+          ],
+          "stringElements": [
+            "caballos,cerdos"
+          ],
+          "stringPlaces": [
+            "campo"
+          ],
+          "stringContainers": [
+            ""
+          ],
+          "stringVerbs": [
+            "comer,alimentarse"
+          ],
+          "extraElements": [
+            "parcelas"
+          ],
+          "positiveResults": [],
+          "integerResults": [],
+          "negativeResults": []
+        }
+      ]},
+    {
+      "name": "Organización rectangular 4",
+      "levels": [
+        4
+      ],
+      "schemas": [
+        {
+          "title": "Organizando el espacio",
+          "variables": ["n1_1", "v1_1", "n2_2", "o1_1"],
+          "baseText": "En un campo hay n1_1 parcelas. En cada parcela pueden v1_1 n2_2 o1_1.",
+          "baseQuestions": [
+            "Si están todos las parcelas completas, ¿cuántos o1_1 hay?"
+          ],
+          "baseAnswers": [
+            "n1_1 * n2_2"
+          ],
+          "stringNumbers": [
+            "4,10",
+            "80,120"
+          ],
+          "stringElements": [
+            "caballos,cerdos"
+          ],
+          "stringPlaces": [
+            "campo"
+          ],
+          "stringContainers": [
+            ""
+          ],
+          "stringVerbs": [
+            "comer,alimentarse"
+          ],
+          "extraElements": [
+            "parcelas"
+          ],
+          "positiveResults": [],
+          "integerResults": [],
+          "negativeResults": []
+        }
+      ]},
+    {
+      "name": "Organización rectangular 5",
+      "levels": [
+        5
+      ],
+      "schemas": [
+        {
+          "title": "Organizando el espacio",
+          "variables": ["n1_1", "v1_1", "n2_2", "o1_1"],
+          "baseText": "En un campo hay n1_1 parcelas. En cada parcela pueden v1_1 n2_2 o1_1.",
+          "baseQuestions": [
+            "Si están todos las parcelas completas, ¿cuántos o1_1 hay?"
+          ],
+          "baseAnswers": [
+            "n1_1 * n2_2"
+          ],
+          "stringNumbers": [
+            "150, 250",
+            "111,175"
+          ],
+          "stringElements": [
+            "caballos,cerdos"
+          ],
+          "stringPlaces": [
+            "campo"
+          ],
+          "stringContainers": [
+            ""
+          ],
+          "stringVerbs": [
+            "comer,alimentarse"
+          ],
+          "extraElements": [
+            "parcelas"
+          ],
+          "positiveResults": [],
+          "integerResults": [],
+          "negativeResults": []
+        }
+      ]},
+    {
+      "name": "Organización rectangular 6",
+      "levels": [
+        6
+      ],
+      "schemas": [
+        {
+          "title": "Organizando el espacio",
+          "variables": ["n1_1", "v1_1", "n2_2", "o1_1"],
+          "baseText": "En un campo hay n1_1 parcelas. En cada parcela pueden v1_1 n2_2 o1_1.",
+          "baseQuestions": [
+            "Si están todos las parcelas completas, ¿cuántos o1_1 hay?"
+          ],
+          "baseAnswers": [
+            "n1_1 * n2_2"
+          ],
+          "stringNumbers": [
+            "250,750",
+            "251,350"
+          ],
+          "stringElements": [
+            "caballos,cerdos"
+          ],
+          "stringPlaces": [
+            "campo"
+          ],
+          "stringContainers": [
+            ""
+          ],
+          "stringVerbs": [
+            "comer,alimentarse"
+          ],
+          "extraElements": [
+            "parcelas"
+          ],
+          "positiveResults": [],
+          "integerResults": [],
+          "negativeResults": []
+        }
+      ]},
+
+    {
+      "name": "Series proporcionales 2",
+      "levels": [
+        2
+      ],
+      "schemas": [
+        {
+          "title": "Series proporcionales",
+          "variables": ["n1_1", "v1_1", "n2_2", "o1_1"],
+          "baseText": "Si en una bandeja v1_1 n1_1 o1_1.",
+          "baseQuestions": [
+            "¿Cuántos o1_1 entran en n2_2 bandejas?",
+            "¿Cuántos o1_1 se necesitan para llenar n2_2 bandejas?"
+        ],
+          "baseAnswers": [
+            "n1_1 * n2_2",
+            "n1_1 * n2_2"
+          ],
+          "stringNumbers": [
+            "2,4",
+            "3,5"
+          ],
+          "stringElements": [
+            "vasos,pares de cubiertos,chupetines"
+          ],
+          "stringPlaces": [
+            ""
+          ],
+          "stringContainers": [
+            ""
+          ],
+          "stringVerbs": [
+            "entran,caben"
+          ],
+          "extraElements": [
+            "bandejas"
+          ],
+          "positiveResults": [],
+          "integerResults": [],
+          "negativeResults": []
+        }
+      ]},
+    {
+      "name": "Series proporcionales 3",
+      "levels": [
+        3
+      ],
+      "schemas": [
+        {
+          "title": "Series proporcionales",
+          "variables": ["n1_1", "v1_1", "n2_2", "o1_1"],
+          "baseText": "Si en una bandeja v1_1 n1_1 o1_1.",
+          "baseQuestions": [
+            "¿Cuántos o1_1 entran en n2_2 bandejas?",
+            "¿Cuántos o1_1 se necesitan para llenar n2_2 bandejas?"
+          ],
+          "baseAnswers": [
+            "n1_1 * n2_2",
+            "n1_1 * n2_2"
+          ],
+          "stringNumbers": [
+            "3,9",
+            "3,9"
+          ],
+          "stringElements": [
+            "vasos,pares de cubiertos,chupetines"
+          ],
+          "stringPlaces": [
+            ""
+          ],
+          "stringContainers": [
+            ""
+          ],
+          "stringVerbs": [
+            "entran,caben"
+          ],
+          "extraElements": [
+            "bandejas"
+          ],
+          "positiveResults": [],
+          "integerResults": [],
+          "negativeResults": []
+        }
+      ]},
+    {
+      "name": "Series proporcionales 4",
+      "levels": [
+        4
+      ],
+      "schemas": [
+        {
+          "title": "Series proporcionales",
+          "variables": ["n1_1", "v1_1", "n2_2", "o1_1"],
+          "baseText": "Si en una bandeja v1_1 n1_1 o1_1.",
+          "baseQuestions": [
+            "¿Cuántos o1_1 entran en n2_2 bandejas?",
+            "¿Cuántos o1_1 se necesitan para llenar n2_2 bandejas?"
+          ],
+          "baseAnswers": [
+            "n1_1 * n2_2",
+            "n1_1 * n2_2"
+          ],
+          "stringNumbers": [
+            "3,9",
+            "80,120"
+          ],
+          "stringElements": [
+            "vasos,pares de cubiertos,chupetines"
+          ],
+          "stringPlaces": [
+            ""
+          ],
+          "stringContainers": [
+            ""
+          ],
+          "stringVerbs": [
+            "entran,caben"
+          ],
+          "extraElements": [
+            "bandejas"
+          ],
+          "positiveResults": [],
+          "integerResults": [],
+          "negativeResults": []
+        }
+      ]},
+    {
+      "name": "Series proporcionales 5",
+      "levels": [
+        5
+      ],
+      "schemas": [
+        {
+          "title": "Series proporcionales",
+          "variables": ["n1_1", "v1_1", "n2_2", "o1_1"],
+          "baseText": "Si en una bandeja v1_1 n1_1 o1_1.",
+          "baseQuestions": [
+            "¿Cuántos o1_1 entran en n2_2 bandejas?",
+            "¿Cuántos o1_1 se necesitan para llenar n2_2 bandejas?"
+          ],
+          "baseAnswers": [
+            "n1_1 * n2_2",
+            "n1_1 * n2_2"
+          ],
+          "stringNumbers": [
+            "9,19",
+            "80,120"
+          ],
+          "stringElements": [
+            "vasos,pares de cubiertos,chupetines"
+          ],
+          "stringPlaces": [
+            ""
+          ],
+          "stringContainers": [
+            ""
+          ],
+          "stringVerbs": [
+            "entran,caben"
+          ],
+          "extraElements": [
+            "bandejas"
+          ],
+          "positiveResults": [],
+          "integerResults": [],
+          "negativeResults": []
+        }
+      ]},
+    {
+      "name": "Series proporcionales 6",
+      "levels": [
+        6
+      ],
+      "schemas": [
+        {
+          "title": "Series proporcionales",
+          "variables": ["n1_1", "v1_1", "n2_2", "o1_1"],
+          "baseText": "Si en una bandeja v1_1 n1_1 o1_1.",
+          "baseQuestions": [
+            "¿Cuántos o1_1 entran en n2_2 bandejas?",
+            "¿Cuántos o1_1 se necesitan para llenar n2_2 bandejas?"
+          ],
+          "baseAnswers": [
+            "n1_1 * n2_2",
+            "n1_1 * n2_2"
+          ],
+          "stringNumbers": [
+            "80,250",
+            "150,250"
+          ],
+          "stringElements": [
+            "vasos,pares de cubiertos,chupetines"
+          ],
+          "stringPlaces": [
+            ""
+          ],
+          "stringContainers": [
+            ""
+          ],
+          "stringVerbs": [
+            "entran,caben"
+          ],
+          "extraElements": [
+            "bandejas"
+          ],
+          "positiveResults": [],
+          "integerResults": [],
+          "negativeResults": []
+        }
+      ]}
+
+
+  ],
+  "subjects": [
+    "Martín",
+    "Lucas",
+    "María",
+    "Pedro",
+    "Agustín",
+    "Bautista",
+    "Jazmín",
+    "Camila",
+    "José",
+    "Luciano",
+    "Joaquín",
+    "Aymará"
+  ]
 }

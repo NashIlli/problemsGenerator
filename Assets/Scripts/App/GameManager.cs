@@ -35,6 +35,10 @@ namespace Assets.Scripts.App
             {
                 pedagogicalObjectives[i] = JsonUtility.FromJson<PedagogicalObjective>(data["pedagogicalObjectives"][i].ToString());
             }
+            foreach (PedagogicalObjective pedagogicalObjective in pedagogicalObjectives)
+            {
+                pedagogicalObjective.InitSchemas();
+            }
         }
 
         public string GetText()
@@ -64,7 +68,7 @@ namespace Assets.Scripts.App
             {
                 if (pedagogicalObjectives[i].GetLevels().Contains(level)) currrentPedagogicalObjectives.Add(pedagogicalObjectives[i]);
             }
-            currentProblem = currrentPedagogicalObjectives[selectedObjective].GenerateProblem();
+            currentProblem = currrentPedagogicalObjectives[selectedObjective].GenerateProblem(level);
             ViewController.GetController().StartProblem();
             ProblemController.GetController().SetProblem(currentProblem);
         }

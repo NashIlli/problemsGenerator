@@ -128,7 +128,7 @@ namespace Assets.Scripts.AnswerPhase
 
         public void OnClickNumber(int number)
         {
-            if (answerInputField.text.Length < 4)
+            if (answerInputField.text.Length < 6)
             {
                 PlayClickSound();
                 answerInputField.text += number;
