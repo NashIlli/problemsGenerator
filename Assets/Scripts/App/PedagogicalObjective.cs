@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace Assets.Scripts.App
@@ -9,28 +8,24 @@ namespace Assets.Scripts.App
     public class PedagogicalObjective
     {
 
-        public string name;
-        public int[] levels;
-        public Schema[] schemas;
+        public string Name;
+        public int[] Levels;
+        public Schema[] Schemas;
 
         public Problem GenerateProblem(int level)
         {
-            /*
-                        Schema schema = schemas[UnityEngine.Random.Range(0, schemas.Length)];
-            */
-            Schema schema = schemas[0];
-
-            return schema.GenerateProblem(levels.ToList().IndexOf(level));
+            return null;
+            //return Schemas[UnityEngine.Random.Range(0, Schemas.Length)].GenerateProblem(Levels.ToList().IndexOf(level));
         }
 
         public List<int> GetLevels()
         {
-            return levels.ToList();
+            return Levels.ToList();
         }
 
         public void InitSchemas()
         {
-            foreach (Schema schema in schemas)
+            foreach (Schema schema in Schemas)
             {
                 schema.InitSchema();
             }

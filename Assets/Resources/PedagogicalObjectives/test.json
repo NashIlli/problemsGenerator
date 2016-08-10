@@ -1,0 +1,85 @@
+{
+    "name": "Organización rectangular 2",
+    "levels": [
+        2
+    ],
+    "schemas": [
+        {
+            "title": "Organizando el espacio",
+            "variables": {
+                "level1": ["var1", "var2"]
+            },
+            "baseText": {
+                "level1": "En un place1 hay number1 container1. En cada parcela pueden verb1 number2 element1."
+            },
+            "baseQuestions": {
+                "level1": [
+                    {
+                        "question": "?",
+                        "answer": "number1 * number2"
+                    }
+                ]
+            },
+            "numberValues": {
+                "level1": {
+                    "number1": {
+                        "type": "discrete",
+                        "possibleNumbers": "1, 2, 3, 54, -3"
+                    },
+                    "number2": {
+                        "type": "range",
+                        "start": "1",
+                        "end": "10",
+                        "step": "2"
+                    }
+                },
+                "level2": {
+                    "number1": {
+                        "type": "discrete",
+                        "possibleNumbers": "1, 2, 3, 54, -3"
+                    },
+                    "number2": {
+                        "type": "range",
+                        "start": "1",
+                        "end": "10",
+                        "step": "2"
+                    }
+                }
+            },
+            "elements": [
+                {
+                    "text": "caballos",
+                    "id": 0
+                },
+                {
+                    "text": "cerdos",
+                    "id": 1
+                }
+            ],
+            "places": [
+                {
+                    "text": "campo"
+                }
+            ],
+            "containers": [
+                {
+                    "text": "parcelas",
+                    "id": 2
+                }
+            ],
+            "verbs": [
+                {
+                    "text": "comer"
+                },
+                {
+                    "text": "alimentarse"
+                }
+            ],
+            "integerResults": [],
+            "nonIntegerResults": [],
+            "positiveResults": [],
+            "zeroResults": [],
+            "negativeResults": []
+        }
+    ]
+}

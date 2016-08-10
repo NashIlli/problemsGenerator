@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.App;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.AnalysisPhase
 {

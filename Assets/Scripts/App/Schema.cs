@@ -4,16 +4,15 @@ using System.Diagnostics;
 
 namespace Assets.Scripts.App
 {
-    [Serializable]
     public class Schema
     {
-        public string title;
-        public string[] variables;
-        public string[] stringNumbers;
+        public string Title;
+        // key is level
+        public Dictionary<string, string[]> Variables;
+        public Dictionary<string, string> BaseText;
+        public Dictionary<string, Question[]> BaseQuestions;
+        public string[] StringNumbers;
         private List<List<int>> numbers;
-        public string baseText;
-        public string[] baseQuestions;
-        public string[] baseAnswers;
         public string[] stringElements;
         private List<List<string>> elements;
         public string[] stringPlaces;
@@ -31,10 +30,10 @@ namespace Assets.Scripts.App
         public void InitSchema()
         {
             numbers = new List<List<int>>();
-            for (int i = 0; i < stringNumbers.Length; i++)
+            for (int i = 0; i < StringNumbers.Length; i++)
             {
                 numbers.Add(new List<int>());
-                string[] split = stringNumbers[i].Split(',');
+                string[] split = StringNumbers[i].Split(',');
                 for (int j = 0; j < split.Length; j++)
                 {
                     numbers[i].Add(int.Parse(split[j].Trim()));
@@ -86,14 +85,14 @@ namespace Assets.Scripts.App
             }
         }
 
-        public Problem GenerateProblem(int indexLevel)
+      /*  public Problem GenerateProblem(int indexLevel)
         {
             int currentQuestion = UnityEngine.Random.Range(0, baseAnswers.Length);
             Problem toReturn;
             do
             {
                 List<string> usedList = new List<string>();
-                string concretTitle = title;
+                string concretTitle = Title;
                 string concreteText = baseText;
                 string concreteQuestion = baseQuestions[currentQuestion];
                 if (concreteQuestion.Contains("gastaron"))
@@ -107,7 +106,7 @@ namespace Assets.Scripts.App
                 string[] currentIntegerResults = (string[]) integerResults.Clone();
 
 
-                foreach (string variable in variables)
+                foreach (string variable in Variables)
                 {
                     string concreteVariable;
                     do
@@ -156,7 +155,7 @@ namespace Assets.Scripts.App
 
             return toReturn;
 
-        }
+        }*/
 
         private string MakeConcrete(string variable)
         {
