@@ -14,8 +14,7 @@ namespace Assets.Scripts.App
 
         public Problem GenerateProblem(int level)
         {
-            return null;
-            //return Schemas[UnityEngine.Random.Range(0, Schemas.Length)].GenerateProblem(Levels.ToList().IndexOf(level));
+            return Schemas[UnityEngine.Random.Range(0, Schemas.Length)].GenerateProblem(level);
         }
 
         public List<int> GetLevels()
@@ -23,13 +22,13 @@ namespace Assets.Scripts.App
             return Levels.ToList();
         }
 
-        public void InitSchemas()
+     /*   public void InitSchemas()
         {
             foreach (Schema schema in Schemas)
             {
                 schema.InitSchema();
             }
-        }
+        }*/
     }
 }
 
