@@ -100,10 +100,30 @@ namespace Assets.Scripts.App
             schema.Places = ObtainStringTuple(schemaAsset["places"], "text", "id");
             schema.Verbs = ObtainStringTuple(schemaAsset["verbs"], "text", "id");
             schema.Containers = ObtainStringTuple(schemaAsset["containers"], "text", "id");
-            schema.Elements = ObtainStringMatrix(schemaAsset["elements"], "text", "id"); 
+
+            schema.Elements = ObtainElements(schemaAsset["elements"].AsObject, "text", "id"); 
             
             return schema;
 
+        }
+
+        private Dictionary<string, Tuple<string, string>[]> ObtainElements(JSONClass jsonNode, string key1, string key2)
+        {
+            ArrayList keys = jsonNode.GetKeys();
+            Dictionary<string, Tuple<string, string>[]> dictionary = new Dictionary<string, Tuple<string, string>[]>(keys.Count);
+
+            for (int i = keys.Count - 1; i >= 0; i--)
+            {
+                JSONNode node = jsonNode[keys[i].ToString()];
+                Tuple<string, string>[] values = new Tuple<string, string>[jsonNode[keys[i].ToString()].Count];
+                for (int j = node.Count - 1; j >= 0; j--)
+                {
+                    values[j] = new Tuple<string, string>(node[j][key1], node[j][key2]);
+                }
+                dictionary.Add(keys[i].ToString(), values);
+            }
+
+            return dictionary;
         }
 
         private Tuple<string, string>[][] ObtainStringMatrix(JSONNode jsonNode, string key1, string key2)

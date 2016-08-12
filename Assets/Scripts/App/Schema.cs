@@ -12,7 +12,7 @@ namespace Assets.Scripts.App
         public Tuple<string, string>[] Places;
         public Tuple<string, string>[] Containers;
         public Tuple<string, string>[] Verbs;
-        public Tuple<string, string>[][] Elements;
+        public Dictionary<string, Tuple<string, string>[]> Elements;
 
 
 
@@ -76,96 +76,122 @@ namespace Assets.Scripts.App
 
         public Problem GenerateProblem(int numericLevel)
         {
-           /* Level level = Levels["level" + numericLevel];
+            /* Level level = Levels["level" + numericLevel];
 
-            // Tuple with strings <question, answer>
-            Tuple<string, string> currentQuestion =
-                level.BaseQuestions[UnityEngine.Random.Range(0, level.BaseQuestions.Length)];
-            Problem toReturn;
-            do
-            {*/
-                /*      List<string> usedList = new List<string>();
-                      string concretTitle = Title;
-                      string concreteText = level.BaseText;
-                      string concreteQuestion = currentQuestion.First; 
-                      string concreteAnswer = currentQuestion.Second;
+             // Tuple with strings <question, answer>
+             Tuple<string, string> currentQuestion =
+                 level.BaseQuestions[UnityEngine.Random.Range(0, level.BaseQuestions.Length)];
+             Problem toReturn;
+             do
+             {
+                 List<Tuple<string, string>> usedList = new List<Tuple<string, string>>();
+                 string concretTitle = Title;
+                 string concreteText = level.BaseText;
+                 string concreteQuestion = currentQuestion.First; 
+                 string concreteAnswer = currentQuestion.Second;
 
-                      List<string> currentElements = new List<string>();
-                      string[] currentPositiveResults = (string[]) level.PositiveResults.Clone();
-                      string[] currentZeroOrPositiveResults = (string[]) level.ZeroOrPositiveResults.Clone();
-                      string[] currentNegativeResults = (string[]) level.NegativeResults.Clone();
-                      string[] currentZeroOrNegativeResults = (string[]) level.ZeroOrNegativeResults.Clone();
-                      string[] currentIntegerResults = (string[]) level.IntegerResults.Clone();
-                      string[] currentNonIntegerResults = (string[]) level.NonIntegerResults.Clone();
-                      string[] currentZeroResults = (string[]) level.ZeroResults.Clone();
+                 List<Tuple<string, string>> elementsWithImage = new List<Tuple<string, string>>();
+                 string[] currentPositiveResults = (string[]) level.PositiveResults.Clone();
+                 string[] currentZeroOrPositiveResults = (string[]) level.ZeroOrPositiveResults.Clone();
+                 string[] currentNegativeResults = (string[]) level.NegativeResults.Clone();
+                 string[] currentZeroOrNegativeResults = (string[]) level.ZeroOrNegativeResults.Clone();
+                 string[] currentIntegerResults = (string[]) level.IntegerResults.Clone();
+                 string[] currentNonIntegerResults = (string[]) level.NonIntegerResults.Clone();
+                 string[] currentZeroResults = (string[]) level.ZeroResults.Clone();
 
 
-                      foreach (string variable in level.Variables)
-                      {
-                          string concreteVariable;
-                          do concreteVariable = MakeConcrete(variable);
-                          while (!variable.Contains("n") && usedList.Contains(concreteVariable));
+                 foreach (string variable in level.Variables)
+                 {
+                     Tuple<string, string> concreteVariable;
+                     do concreteVariable = MakeConcrete(level, variable);
+                     while (!variable.Contains("number") && usedList.Contains(concreteVariable));
+                     // if the variable has and id to search its image
+                     if (concreteVariable.Second != "") elementsWithImage.Add(concreteVariable);
 
-                          if (variable.Contains("o") || variable.Contains("c")) currentElements.Add(concreteVariable);
 
-                          concretTitle = concretTitle.Replace(variable, concreteVariable);
-                          concreteText = concreteText.Replace(variable, concreteVariable);
-                          concreteQuestion = concreteQuestion.Replace(variable, concreteVariable);
+                     concretTitle = ReplaceVariableWithCorrectString(concretTitle, variable, concreteVariable);
+                     concretTitle = concretTitle.Replace(variable, concreteVariable.First);
+                     concreteText = concreteText.Replace(variable, concreteVariable.First);
+                     concreteQuestion = concreteQuestion.Replace(variable, concreteVariable.First);
+                     if (variable.Contains("number"))
+                     {
+                         concreteAnswer = GetNumericVariable(concreteAnswer, variable, concreteVariable, currentPositiveResults, currentNegativeResults, currentIntegerResults);
+                     }
+                     usedList.Add(concreteVariable);
+                 }
 
-                          if (variable.Contains("n"))
-                          {
-                              concreteAnswer = concreteAnswer.Replace(variable, concreteVariable);
-                              for (int i = 0; i < positiveResults.Length; i++)
-                              {
-                                  currentPositiveResults[i] = currentPositiveResults[i].Replace(variable, concreteVariable);
-                              }
-                              for (int i = 0; i < negativeResults.Length; i++)
-                              {
-                                  currentNegativeResults[i] = currentNegativeResults[i].Replace(variable, concreteVariable);
-                              }
-                              for (int i = 0; i < integerResults.Length; i++)
-                              {
-                                  currentIntegerResults[i] = currentIntegerResults[i].Replace(variable, concreteVariable);
-                              }
-
-                              for (int i = 0; i < extraElements.Length; i++)
-                              {
-                                  if (extraElements[i].Contains(variable.ToLower()))
-                                  {
-                                      extraElements[i] = extraElements[i].Replace(variable, concreteVariable);
-                                  }
-                              }
-                          }
-
-                          usedList.Add(concreteVariable);
-                      }
-
-                      toReturn = new Problem(concretTitle, concreteText, concreteQuestion, concreteAnswer, currentElements.ToArray(), currentPositiveResults, currentNegativeResults, currentIntegerResults);
-                  } while (!toReturn.CheckRestrictons());
-
-                  toReturn.AddElements(extraElements);
-
-                  return toReturn;
-                  */
-                return null;
-
-            
+                 toReturn = new Problem(concretTitle, concreteText, concreteQuestion, concreteAnswer, elementsWithImage.ToArray(), currentPositiveResults, currentNegativeResults, currentIntegerResults);
+             } while (!toReturn.CheckRestrictons());
+             toReturn.AddElements(extraElements);
+             return toReturn;*/
+            return null;
         }
 
-        private string MakeConcrete(Level level, string variable)
+        /*
+                private string ReplaceVariableWithCorrectString(string text, string variable, string concreteVariable)
+                {
+                    // prevword and index
+                    List<Tuple<string, int>> variablesWithPrevWord = GetVariablesWithPrevword(text, variable);
+                    //text.IndexOf(variable)
+                }
+        */
+
+        private List<Tuple<string, int>> GetVariablesWithPrevword(string text, string variable)
         {
-           /* string lowerVariable = variable.ToLower();
-            if (lowerVariable.Contains("number")) return level.NumberesValues[variable].GetNumber().ToString(CultureInfo.InvariantCulture);
-            if (lowerVariable.Contains("subject")) return GameManager.GetManager().GetSubjects()[UnityEngine.Random.Range(0, GameManager.GetManager().GetSubjects().Length)];
+            List<Tuple<string, int>> variablesWithPreWord = new List<Tuple<string, int>>();
+            string[] splitted = text.Split(' ');
+            for (int i = splitted.Length - 1; i >= 1; i--)
+            {
+                if (splitted[i].Equals(variable, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    variablesWithPreWord.Add(new Tuple<string, int>(splitted[i - 1], i - 1));
+                }
+            }
+            if(splitted[0].Equals(variable, StringComparison.InvariantCultureIgnoreCase)) variablesWithPreWord.Add(new Tuple<string, int>("", -1));
+            return variablesWithPreWord;
+        }
+
+        private static string GetNumericVariable(string concreteAnswer, string variable, Tuple<string, string> concreteVariable,
+            string[] currentPositiveResults, string[] currentNegativeResults, string[] currentIntegerResults)
+        {
+           /* concreteAnswer = concreteAnswer.Replace(variable, concreteVariable);
+            for (int i = 0; i < positiveResults.Length; i++)
+            {
+                currentPositiveResults[i] = currentPositiveResults[i].Replace(variable, concreteVariable);
+            }
+            for (int i = 0; i < negativeResults.Length; i++)
+            {
+                currentNegativeResults[i] = currentNegativeResults[i].Replace(variable, concreteVariable);
+            }
+            for (int i = 0; i < integerResults.Length; i++)
+            {
+                currentIntegerResults[i] = currentIntegerResults[i].Replace(variable, concreteVariable);
+            }
+
+            for (int i = 0; i < extraElements.Length; i++)
+            {
+                if (extraElements[i].Contains(variable.ToLower()))
+                {
+                    extraElements[i] = extraElements[i].Replace(variable, concreteVariable);
+                }
+            }*/
+            return concreteAnswer;
+        }
+
+        private Tuple<string, string> MakeConcrete(Level level, string variable)
+        {
+            string lowerVariable = variable.ToLower();
+            if (lowerVariable.Contains("number")) return new Tuple<string, string>(level.NumberesValues[variable].GetNumber().ToString(CultureInfo.InvariantCulture), "");
+            if (lowerVariable.Contains("subject")) return new Tuple<string, string>(GameManager.GetManager().GetSubjects()[UnityEngine.Random.Range(0, GameManager.GetManager().GetSubjects().Length)], "");
             if (lowerVariable.Contains("element"))
             {
-                return le[UnityEngine.Random.Range(0, elements[group].Count)];
+                string group = lowerVariable.Substring(lowerVariable.IndexOf("_", StringComparison.Ordinal) + 1);
+                return Elements[group][UnityEngine.Random.Range(0, Elements[group].Length)];
             }
-            if (lowerVariable.Contains("p")) return places[group][UnityEngine.Random.Range(0, places[group].Count)];
-            if (lowerVariable.Contains("v")) return verbs[group][UnityEngine.Random.Range(0, verbs[group].Count)];
-            if (lowerVariable.Contains("c")) return containers[group][UnityEngine.Random.Range(0, containers[group].Count)];*/
-            return "Error";
-
+            if (lowerVariable.Contains("place")) return Places[UnityEngine.Random.Range(0, Places.Length)];
+            if (lowerVariable.Contains("verb")) return Verbs[UnityEngine.Random.Range(0, Verbs.Length)];
+            if (lowerVariable.Contains("container")) return Containers[UnityEngine.Random.Range(0, Containers.Length)];
+            throw new Exception("Trying to conretize a variable and it doesn't match with any pattern");
         }
 /*
         private int ObtainGroup(string lowerVariable)
