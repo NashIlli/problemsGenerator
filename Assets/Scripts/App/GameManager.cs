@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using SimpleJSON;
 using UnityEngine;
 
@@ -25,6 +26,7 @@ namespace Assets.Scripts.App
 
         private void LoadImages()
         {
+            
             TextAsset jsonTextAsset = Resources.Load<TextAsset>("images");
             JSONNode data = JSON.Parse(jsonTextAsset.text);
             _imagePaths = new Tuple<string, string>[data["images"].Count];
@@ -161,7 +163,7 @@ namespace Assets.Scripts.App
 
             level.Variables = ObtainStringArray(schemaAsset["variables"][key]);
             level.BaseText = ObtainBaseText(key, schemaAsset["baseText"]);
-            level.BaseQuestions = ObtainStringTuple(schemaAsset["baseQuestions"][key], "question", "question");
+            level.BaseQuestions = ObtainStringTuple(schemaAsset["baseQuestions"][key], "question", "answer");
             level.NumberesValues = ObtainNumberValues(key, schemaAsset["numberValues"]);
 
             level.IntegerResults = ObtainStringArray(schemaAsset["integerResults"][key]);

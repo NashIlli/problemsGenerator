@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace Assets.Scripts.App
 {
@@ -76,7 +77,7 @@ namespace Assets.Scripts.App
 
         public Problem GenerateProblem(int numericLevel)
         {
-            /* Level level = Levels["level" + numericLevel];
+             Level level = Levels["level" + numericLevel];
 
              // Tuple with strings <question, answer>
              Tuple<string, string> currentQuestion =
@@ -89,8 +90,8 @@ namespace Assets.Scripts.App
                  string concreteText = level.BaseText;
                  string concreteQuestion = currentQuestion.First; 
                  string concreteAnswer = currentQuestion.Second;
-
-                 List<Tuple<string, string>> elementsWithImage = new List<Tuple<string, string>>();
+                // only its id
+                 List<string> elementsWithImage = new List<string>();
                  string[] currentPositiveResults = (string[]) level.PositiveResults.Clone();
                  string[] currentZeroOrPositiveResults = (string[]) level.ZeroOrPositiveResults.Clone();
                  string[] currentNegativeResults = (string[]) level.NegativeResults.Clone();
@@ -104,37 +105,97 @@ namespace Assets.Scripts.App
                  {
                      Tuple<string, string> concreteVariable;
                      do concreteVariable = MakeConcrete(level, variable);
-                     while (!variable.Contains("number") && usedList.Contains(concreteVariable));
-                     // if the variable has and id to search its image
-                     if (concreteVariable.Second != "") elementsWithImage.Add(concreteVariable);
+                     while (usedList.Contains(concreteVariable));
+                     // if the variable has and 'id' to search its image
+                     if (concreteVariable.Second != "") elementsWithImage.Add(concreteVariable.Second);
 
-
-                     concretTitle = ReplaceVariableWithCorrectString(concretTitle, variable, concreteVariable);
-                     concretTitle = concretTitle.Replace(variable, concreteVariable.First);
-                     concreteText = concreteText.Replace(variable, concreteVariable.First);
-                     concreteQuestion = concreteQuestion.Replace(variable, concreteVariable.First);
+                     concretTitle = ReplaceVariableWithCorrectString(concretTitle, variable, concreteVariable.First);
+                     concreteText = ReplaceVariableWithCorrectString(concreteText, variable, concreteVariable.First);
+                     concreteQuestion = ReplaceVariableWithCorrectString(concreteQuestion, variable, concreteVariable.First);
                      if (variable.Contains("number"))
                      {
-                         concreteAnswer = GetNumericVariable(concreteAnswer, variable, concreteVariable, currentPositiveResults, currentNegativeResults, currentIntegerResults);
+                         concreteAnswer = ReplaceNumericVariable(concreteAnswer, variable, concreteVariable.First,
+                             currentPositiveResults, currentZeroOrPositiveResults, currentNegativeResults,
+                             currentZeroOrNegativeResults, currentZeroResults, currentIntegerResults,
+                             currentNonIntegerResults);
                      }
-                     usedList.Add(concreteVariable);
-                 }
+                     else
+                     {
+                        usedList.Add(concreteVariable);
+                    }
+                }
 
-                 toReturn = new Problem(concretTitle, concreteText, concreteQuestion, concreteAnswer, elementsWithImage.ToArray(), currentPositiveResults, currentNegativeResults, currentIntegerResults);
+                 toReturn = new Problem(concretTitle, concreteText, concreteQuestion, concreteAnswer, elementsWithImage.ToArray(), currentPositiveResults, currentZeroOrPositiveResults, currentNegativeResults, currentZeroOrNegativeResults, currentZeroResults, currentIntegerResults, currentNonIntegerResults);
              } while (!toReturn.CheckRestrictons());
+/*
              toReturn.AddElements(extraElements);
-             return toReturn;*/
-            return null;
+*/
+             return toReturn;
         }
 
-        /*
-                private string ReplaceVariableWithCorrectString(string text, string variable, string concreteVariable)
-                {
-                    // prevword and index
-                    List<Tuple<string, int>> variablesWithPrevWord = GetVariablesWithPrevword(text, variable);
-                    //text.IndexOf(variable)
-                }
-        */
+        private string ReplaceNumericVariable(string concreteAnswer, string variable, string concreteVariable, string[] currentPositiveResults, string[] currentZeroOrPositiveResults, string[] currentNegativeResults, string[] currentZeroOrNegativeResults, string[] currentZeroResults, string[] currentIntegerResults, string[] currentNonIntegerResults)
+        {
+            concreteAnswer = concreteAnswer.Replace(variable, concreteVariable);
+            
+            for (int i = 0; i < currentPositiveResults.Length; i++)
+            {
+                currentPositiveResults[i] = currentPositiveResults[i].Replace(variable, concreteVariable);
+            }
+            for (int i = 0; i < currentZeroOrPositiveResults.Length; i++)
+            {
+                currentZeroOrPositiveResults[i] = currentZeroOrPositiveResults[i].Replace(variable, concreteVariable);
+            }
+            for (int i = 0; i < currentNegativeResults.Length; i++)
+            {
+                currentNegativeResults[i] = currentNegativeResults[i].Replace(variable, concreteVariable);
+            }
+
+            for (int i = 0; i < currentZeroOrNegativeResults.Length; i++)
+            {
+                currentZeroOrNegativeResults[i] = currentZeroOrNegativeResults[i].Replace(variable, concreteVariable);
+            }
+            for (int i = 0; i < currentZeroResults.Length; i++)
+            {
+                currentZeroResults[i] = currentZeroResults[i].Replace(variable, concreteVariable);
+            }
+            for (int i = 0; i < currentIntegerResults.Length; i++)
+            {
+                currentIntegerResults[i] = currentIntegerResults[i].Replace(variable, concreteVariable);
+            }
+            for (int i = 0; i < currentNonIntegerResults.Length; i++)
+            {
+                currentNonIntegerResults[i] = currentNonIntegerResults[i].Replace(variable, concreteVariable);
+            }
+
+          /*    for (int i = 0; i < extraElements.Length; i++)
+              {
+                  if (extraElements[i].Contains(variable.ToLower()))
+                  {
+                      extraElements[i] = extraElements[i].Replace(variable, concreteVariable);
+                  }
+              }*/
+            return concreteAnswer;
+        }
+
+        private string ReplaceVariableWithCorrectString(string text, string variable, string concreteVariable)
+        {
+            // prevword and index
+            List<Tuple<string, int>> variablesWithPrevWord = GetVariablesWithPrevword(text, variable);
+            string[] splitted = text.Split(' ');
+            foreach (Tuple<string, int> tuple in variablesWithPrevWord)
+            {
+                concreteVariable = ObtainCorrectString(tuple.First, concreteVariable);
+                splitted[tuple.Second + 1] = concreteVariable;
+            }
+            return string.Join(" ", splitted);
+        }
+
+        private string ObtainCorrectString(string prevWord, string word)
+        {
+            // word is always in singular
+            // todo obtener plural en casos que sean necesarios
+            return word;
+        }
 
         private List<Tuple<string, int>> GetVariablesWithPrevword(string text, string variable)
         {
@@ -151,32 +212,7 @@ namespace Assets.Scripts.App
             return variablesWithPreWord;
         }
 
-        private static string GetNumericVariable(string concreteAnswer, string variable, Tuple<string, string> concreteVariable,
-            string[] currentPositiveResults, string[] currentNegativeResults, string[] currentIntegerResults)
-        {
-           /* concreteAnswer = concreteAnswer.Replace(variable, concreteVariable);
-            for (int i = 0; i < positiveResults.Length; i++)
-            {
-                currentPositiveResults[i] = currentPositiveResults[i].Replace(variable, concreteVariable);
-            }
-            for (int i = 0; i < negativeResults.Length; i++)
-            {
-                currentNegativeResults[i] = currentNegativeResults[i].Replace(variable, concreteVariable);
-            }
-            for (int i = 0; i < integerResults.Length; i++)
-            {
-                currentIntegerResults[i] = currentIntegerResults[i].Replace(variable, concreteVariable);
-            }
-
-            for (int i = 0; i < extraElements.Length; i++)
-            {
-                if (extraElements[i].Contains(variable.ToLower()))
-                {
-                    extraElements[i] = extraElements[i].Replace(variable, concreteVariable);
-                }
-            }*/
-            return concreteAnswer;
-        }
+      
 
         private Tuple<string, string> MakeConcrete(Level level, string variable)
         {
