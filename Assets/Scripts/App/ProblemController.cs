@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.AnalysisPhase;
+﻿using System.Collections.Generic;
+using Assets.Scripts.AnalysisPhase;
 using Assets.Scripts.AnswerPhase;
 using Assets.Scripts.Sound;
 using UnityEngine;
@@ -62,7 +63,7 @@ namespace Assets.Scripts.App
             return formatableText;
         }
 
-        public string[] GetElementsToDrag()
+        public List<string> GetElementsToDrag()
         {
             return currentProblem.GetElementsToDrag();
         }

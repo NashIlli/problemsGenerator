@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.App
 {
@@ -10,10 +11,10 @@ namespace Assets.Scripts.App
         public string Title;
         // key is level
         public Dictionary<string, Level> Levels;    
-        public Tuple<string, string>[] Places;
+       /* public Tuple<string, string>[] Places;
         public Tuple<string, string>[] Containers;
-        public Tuple<string, string>[] Verbs;
-        public Dictionary<string, Tuple<string, string>[]> Elements;
+        public Tuple<string, string>[] Verbs;*/
+        public Dictionary<int, Dictionary<string, Tuple<string, string>[]>> Elements;
 
 
 
@@ -81,7 +82,7 @@ namespace Assets.Scripts.App
 
              // Tuple with strings <question, answer>
              Tuple<string, string> currentQuestion =
-                 level.BaseQuestions[UnityEngine.Random.Range(0, level.BaseQuestions.Length)];
+                 level.BaseQuestions[Random.Range(0, level.BaseQuestions.Length)];
              Problem toReturn;
              do
              {
@@ -90,7 +91,7 @@ namespace Assets.Scripts.App
                  string concreteText = level.BaseText;
                  string concreteQuestion = currentQuestion.First; 
                  string concreteAnswer = currentQuestion.Second;
-                // only its id
+                 // only its id
                  List<string> elementsWithImage = new List<string>();
                  string[] currentPositiveResults = (string[]) level.PositiveResults.Clone();
                  string[] currentZeroOrPositiveResults = (string[]) level.ZeroOrPositiveResults.Clone();
@@ -104,10 +105,11 @@ namespace Assets.Scripts.App
                  foreach (string variable in level.Variables)
                  {
                      Tuple<string, string> concreteVariable;
-                     do concreteVariable = MakeConcrete(level, variable);
+                     int group = Random.Range(0, Elements.Count);
+                     do concreteVariable = MakeConcrete(level, variable, group);
                      while (usedList.Contains(concreteVariable));
                      // if the variable has and 'id' to search its image
-                     if (concreteVariable.Second != "") elementsWithImage.Add(concreteVariable.Second);
+                     if (!string.IsNullOrEmpty(concreteVariable.Second)) elementsWithImage.Add(concreteVariable.Second);
 
                      concretTitle = ReplaceVariableWithCorrectString(concretTitle, variable, concreteVariable.First);
                      concreteText = ReplaceVariableWithCorrectString(concreteText, variable, concreteVariable.First);
@@ -125,7 +127,7 @@ namespace Assets.Scripts.App
                     }
                 }
 
-                 toReturn = new Problem(concretTitle, concreteText, concreteQuestion, concreteAnswer, elementsWithImage.ToArray(), currentPositiveResults, currentZeroOrPositiveResults, currentNegativeResults, currentZeroOrNegativeResults, currentZeroResults, currentIntegerResults, currentNonIntegerResults);
+                 toReturn = new Problem(concretTitle, concreteText, concreteQuestion, concreteAnswer, elementsWithImage, currentPositiveResults, currentZeroOrPositiveResults, currentNegativeResults, currentZeroOrNegativeResults, currentZeroResults, currentIntegerResults, currentNonIntegerResults);
              } while (!toReturn.CheckRestrictons());
 /*
              toReturn.AddElements(extraElements);
@@ -185,16 +187,37 @@ namespace Assets.Scripts.App
             foreach (Tuple<string, int> tuple in variablesWithPrevWord)
             {
                 concreteVariable = ObtainCorrectString(tuple.First, concreteVariable);
-                splitted[tuple.Second + 1] = concreteVariable;
+                splitted[tuple.Second + 1] = splitted[tuple.Second + 1].Replace(variable, concreteVariable);
             }
             return string.Join(" ", splitted);
         }
 
         private string ObtainCorrectString(string prevWord, string word)
         {
-            // word is always in singular
-            // todo obtener plural en casos que sean necesarios
+            // word is always in pluaral
+            switch (prevWord.ToLower())
+            {
+                case "cada":
+                    return ConvertToSingular(word);
+            }
             return word;
+        }
+
+        private string ConvertToSingular(string word)
+        {
+            if (word.EndsWith("ces"))
+            {
+                return word.Substring(0, word.Length - 3) + "z";
+            } if (word.EndsWith("ces"))
+            {
+                return word.Substring(0, word.Length - 2);
+            } if (word.EndsWith("s"))
+            {
+                return word.Substring(0, word.Length - 1);
+            }
+            return word;
+
+
         }
 
         private List<Tuple<string, int>> GetVariablesWithPrevword(string text, string variable)
@@ -203,10 +226,12 @@ namespace Assets.Scripts.App
             string[] splitted = text.Split(' ');
             for (int i = splitted.Length - 1; i >= 1; i--)
             {
-                if (splitted[i].Equals(variable, StringComparison.InvariantCultureIgnoreCase))
+                if (splitted[i].IndexOf(splitted[i], StringComparison.InvariantCultureIgnoreCase) >= 0)
                 {
                     variablesWithPreWord.Add(new Tuple<string, int>(splitted[i - 1], i - 1));
+
                 }
+                
             }
             if(splitted[0].Equals(variable, StringComparison.InvariantCultureIgnoreCase)) variablesWithPreWord.Add(new Tuple<string, int>("", -1));
             return variablesWithPreWord;
@@ -214,12 +239,15 @@ namespace Assets.Scripts.App
 
       
 
-        private Tuple<string, string> MakeConcrete(Level level, string variable)
+        private Tuple<string, string> MakeConcrete(Level level, string variable, int group)
         {
             string lowerVariable = variable.ToLower();
             if (lowerVariable.Contains("number")) return new Tuple<string, string>(level.NumberesValues[variable].GetNumber().ToString(CultureInfo.InvariantCulture), "");
-            if (lowerVariable.Contains("subject")) return new Tuple<string, string>(GameManager.GetManager().GetSubjects()[UnityEngine.Random.Range(0, GameManager.GetManager().GetSubjects().Length)], "");
-            if (lowerVariable.Contains("element"))
+            if (lowerVariable.Contains("subject")) return new Tuple<string, string>(GameManager.GetManager().GetSubjects()[Random.Range(0, GameManager.GetManager().GetSubjects().Length)], "");      
+            string key = lowerVariable.Substring(0, lowerVariable.IndexOf("_", StringComparison.Ordinal));
+            Tuple<string, string>[] tuples = Elements[group][key];
+            return tuples[Random.Range(0, tuples.Length)];
+      /*      if (lowerVariable.Contains("element"))
             {
                 string group = lowerVariable.Substring(lowerVariable.IndexOf("_", StringComparison.Ordinal) + 1);
                 return Elements[group][UnityEngine.Random.Range(0, Elements[group].Length)];
@@ -227,7 +255,7 @@ namespace Assets.Scripts.App
             if (lowerVariable.Contains("place")) return Places[UnityEngine.Random.Range(0, Places.Length)];
             if (lowerVariable.Contains("verb")) return Verbs[UnityEngine.Random.Range(0, Verbs.Length)];
             if (lowerVariable.Contains("container")) return Containers[UnityEngine.Random.Range(0, Containers.Length)];
-            throw new Exception("Trying to conretize a variable and it doesn't match with any pattern");
+            throw new Exception("Trying to conretize a variable and it doesn't match with any pattern");*/
         }
 /*
         private int ObtainGroup(string lowerVariable)

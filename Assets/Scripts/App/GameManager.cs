@@ -99,15 +99,51 @@ namespace Assets.Scripts.App
                 schema.Levels.Add(level.First, level.Second);
             }
 
+            schema.Elements = LoadElements(schemaAsset["elements"].AsObject);
+
+/*
             schema.Places = ObtainStringTuple(schemaAsset["places"], "text", "id");
             schema.Verbs = ObtainStringTuple(schemaAsset["verbs"], "text", "id");
             schema.Containers = ObtainStringTuple(schemaAsset["containers"], "text", "id");
 
-            schema.Elements = ObtainElements(schemaAsset["elements"].AsObject, "text", "id"); 
+            schema.Elements = ObtainElements(schemaAsset["elements"].AsObject, "text", "id"); */
             
             return schema;
 
         }
+
+        private Dictionary<int, Dictionary<string, Tuple<string, string>[]>> LoadElements(JSONClass jsonClass)
+        {
+            ArrayList keys = jsonClass.GetKeys();
+            Dictionary<int, Dictionary<string, Tuple<string, string>[]>> dictionary = new Dictionary<int, Dictionary<string, Tuple<string, string>[]>>(keys.Count);
+            for (int i = keys.Count - 1; i >= 0; i--)
+            {
+                dictionary.Add(i, LoadElementGroup(jsonClass[keys[i].ToString()].AsObject));
+
+            }
+            
+            return dictionary;
+        }
+
+        private Dictionary<string, Tuple<string, string>[]> LoadElementGroup(JSONClass jsonNode)
+        {
+            ArrayList keys = jsonNode.GetKeys();
+            Dictionary<string, Tuple<string, string>[]> group = new Dictionary<string, Tuple<string, string>[]>();
+            foreach (object key in keys)
+            {
+                JSONNode node = jsonNode[key.ToString()];
+                int count = node.Count;
+                Tuple<string, string>[] elementTuples = new Tuple<string, string>[count];
+                for (int i = count - 1; i >= 0; i--)
+                {
+                    elementTuples[i] = new Tuple<string, string>(node[i]["text"], node[i]["id"]);
+                   
+                }
+                group.Add(key.ToString(), elementTuples);
+            }
+            return group;
+        }
+
 
         private Dictionary<string, Tuple<string, string>[]> ObtainElements(JSONClass jsonNode, string key1, string key2)
         {
@@ -198,7 +234,7 @@ namespace Assets.Scripts.App
 
         private string ObtainBaseText(string key, JSONNode jsonNode)
         {
-            return jsonNode[key].ToString();
+            return jsonNode[key].Value;
         }
 
         private string[] ObtainStringArray(JSONNode variablesNode)

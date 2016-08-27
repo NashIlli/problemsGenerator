@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using NCalc;
@@ -13,7 +14,7 @@ namespace Assets.Scripts.App
         private string concreteText;
         private string concreteQuestion;
         private string concreteAnswer;
-        private string[] elementsToDrag;
+        private List<string> elementsToDrag;
         private string[] positiveResults;
         private string[] zeroOrPositiveResults;
         private string[] negativeResults;
@@ -22,7 +23,7 @@ namespace Assets.Scripts.App
         private string[] integerResults;
         private string[] nonIntegerResults;
 
-        public Problem(string title,string concreteText, string concreteQuestion, string concreteAnswer, string[] elementsToDrag, string[] positiveResults, string[] zeroOrPositiveResults, string[] negativeResults, string[] zeroOrNegativeResults, string[] zeroResults, string[] integerResults, string[] nonIntegerResults)
+        public Problem(string title,string concreteText, string concreteQuestion, string concreteAnswer, List<string> elementsToDrag, string[] positiveResults, string[] zeroOrPositiveResults, string[] negativeResults, string[] zeroOrNegativeResults, string[] zeroResults, string[] integerResults, string[] nonIntegerResults)
         {
             this.title = title;
             this.concreteText = concreteText;
@@ -49,7 +50,7 @@ namespace Assets.Scripts.App
             return title;
         }
 
-        public string[] GetElementsToDrag()
+        public List<string> GetElementsToDrag()
         {
             return elementsToDrag;
         }

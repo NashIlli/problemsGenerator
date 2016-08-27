@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using Assets.Scripts.AnalysisPhase;
 using Assets.Scripts.App;
 using Assets.Scripts.Sound;
@@ -52,12 +53,12 @@ namespace Assets.Scripts.AnswerPhase
 
         void Start()
         {
-            
-            string[] elementsToDrag = ProblemController.GetController().GetElementsToDrag();
+
+            List<string> elementsToDrag = ProblemController.GetController().GetElementsToDrag();
             var j = 0;
-            for (; j < elementsToDrag.Length; j++)
+            for (; j < elementsToDrag.Count; j++)
             {
-                draggableImages[j].sprite = Resources.Load<Sprite>("Elements/" + elementsToDrag[j]);
+                draggableImages[j].sprite = Resources.Load<Sprite>("Elements2/" + elementsToDrag[j]);
             }
             for (; j < draggableImages.Length; j++)
             {
