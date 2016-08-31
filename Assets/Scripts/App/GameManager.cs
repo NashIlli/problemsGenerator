@@ -136,8 +136,15 @@ namespace Assets.Scripts.App
                 Tuple<string, string>[] elementTuples = new Tuple<string, string>[count];
                 for (int i = count - 1; i >= 0; i--)
                 {
-                    elementTuples[i] = new Tuple<string, string>(node[i]["text"], node[i]["id"]);
-                   
+                    if (node[i]["text"] != null)
+                    {
+                        elementTuples[i] = new Tuple<string, string>(node[i]["text"], node[i]["id"]);
+                    }
+                    else
+                    {
+                        elementTuples[i] = new Tuple<string, string>(node[i], "");
+                    }
+
                 }
                 group.Add(key.ToString(), elementTuples);
             }
