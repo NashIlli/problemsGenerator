@@ -58,7 +58,8 @@ namespace Assets.Scripts.AnswerPhase
             var j = 0;
             for (; j < elementsToDrag.Count; j++)
             {
-                draggableImages[j].sprite = Resources.Load<Sprite>("Elements2/" + elementsToDrag[j]);
+                int i = elementsToDrag[j].IndexOf("_");
+                draggableImages[j].sprite = Resources.LoadAll<Sprite>("Elements/" + elementsToDrag[j].Substring(0, i))[int.Parse(elementsToDrag[j].Substring(i + 1))];
             }
             for (; j < draggableImages.Length; j++)
             {

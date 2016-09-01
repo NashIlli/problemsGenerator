@@ -195,11 +195,10 @@ namespace Assets.Scripts.App
         private string ObtainCorrectString(string prevWord, string word)
         {
             // word is always in pluaral
-            switch (prevWord.ToLower())
-            {
-                case "cada":
-                    return ConvertToSingular(word);
-            }
+            string lower = prevWord.ToLower();
+            if (lower == "cada") return ConvertToSingular(word);
+ 
+         
             return word;
         }
 
@@ -226,7 +225,7 @@ namespace Assets.Scripts.App
             string[] splitted = text.Split(' ');
             for (int i = splitted.Length - 1; i >= 1; i--)
             {
-                if (splitted[i].IndexOf(splitted[i], StringComparison.InvariantCultureIgnoreCase) >= 0)
+                if (splitted[i].IndexOf(variable, StringComparison.InvariantCultureIgnoreCase) >= 0)
                 {
                     variablesWithPreWord.Add(new Tuple<string, int>(splitted[i - 1], i - 1));
 
