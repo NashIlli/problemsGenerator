@@ -1,0 +1,100 @@
+{
+    "name": "Comparar cantidades",
+    "levels": [
+        2
+    ],
+    "schemas": [
+        {
+            "title": "¿Cuánto falta?",
+            "variables": {
+                "level2": [
+                    "subject1",
+                    "number1",
+                    "number2",
+                    "objects_1",
+                    "billetes_1",
+                    "elements_1"
+                ]
+            },
+            "baseText": {
+                 
+                "level2": "subject1 quiere comprar objects_1 de number1 elements_1 para su billetes_1 Ya pagó number2 pesos."
+            },
+            "baseQuestions": {
+                "level2": [
+                    {
+                        "question": "¿cuánto le falta pagar a subject1?",
+                        "answer": "number1 - number2"
+                    }
+                ]
+            },
+            "numberValues": {
+                "level2": {
+                    "number1": {
+                        "type": "range",
+                        "start": 100,
+                        "end": 200,
+                        "step": 5
+                    },
+                    "number2": {
+                        "type": "range",
+                        "start": 50,
+                        "end": 100,
+                        "step": 5
+                    }
+                }
+            },
+            "elements": {
+                "group1": {
+                    "elements": [
+                        {
+                            "text": "pesos",
+                            "id": "billete_10"
+                        }
+                    ],
+                    "billetes": [
+                        {
+                            "text": "hermano.",
+                            "id": "billete_100"
+                        }
+                    ],
+                    "objects": [
+                        {
+                            "text": "una pelota",
+                            "id": "pelota"
+                        },
+                        {
+                            "text": "un reloj",
+                            "id": "relojes"
+                        },
+                        {
+                            "text": "una silla",
+                            "id": "sillas"
+                        }
+                    ]
+                }
+            },
+            "integerResults": {
+                "level2": []
+            },
+            "nonIntegerResults": {
+                "level2": []
+            },
+            "positiveResults": {
+                "level2": []
+            },
+            "zeroResults": {
+                "level2": []
+            },
+            "negativeResults": {
+                "level2": []
+            },
+            "zeroOrNegativeResults": {
+                "level2": []
+            },
+            "zeroOrPositiveResults": {
+                "level2": []
+            }
+        }
+    ]
+}

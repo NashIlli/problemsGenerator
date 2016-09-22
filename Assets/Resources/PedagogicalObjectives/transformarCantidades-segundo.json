@@ -1,0 +1,85 @@
+{
+    "name": "Transformación de cantidades",
+    "levels": [
+        2
+    ],
+    "schemas": [
+        {
+            "title": "Atentos con el vuelto",
+            "variables": {
+                "level2": [
+                    "subject1",
+                    "number1",
+                    "objects_1",
+                    "billetes_1",
+                    "elements_1"
+                ]
+            },
+            "baseText": {
+                 
+                "level2": "subject1 recibió number1 elements_1 de vuelto por comprar una objects_1 con un billetes_1 de 100."
+            },
+            "baseQuestions": {
+                "level2": [
+                    {
+                        "question": "¿Cuánta plata gastó subject1?",
+                        "answer": "100 - number1"
+                    }
+                ]
+            },
+            "numberValues": {
+                "level2": {
+                    "number1": {
+                        "type": "range",
+                        "start": 35,
+                        "end": 99,
+                        "step": 1
+                    }
+                }
+            },
+            "elements": {
+                "group1": {
+                    "elements": [
+                        {
+                            "text": "pesos",
+                            "id": "billete_10"
+                        }
+                    ],
+                    "billetes": [
+                        {
+                            "text": "billete",
+                            "id": "billete_100"
+                        }
+                    ],
+                    "objects": [
+                        {
+                            "text": "remera",
+                            "id": "remera"
+                        }
+                    ]
+                }
+            },
+            "integerResults": {
+                "level2": []
+            },
+            "nonIntegerResults": {
+                "level2": []
+            },
+            "positiveResults": {
+                "level2": []
+            },
+            "zeroResults": {
+                "level2": []
+            },
+            "negativeResults": {
+                "level2": []
+            },
+            "zeroOrNegativeResults": {
+                "level2": []
+            },
+            "zeroOrPositiveResults": {
+                "level2": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,149 @@
+{
+    "name": "Proporcionalidad",
+    "levels": [
+        3
+    ],
+    "schemas": [
+        {
+            "title": "Decorando",
+            "variables": {
+                "level3": [
+                    "number1",
+                    "number2",
+                    "objects_1",
+                    "elements_1"
+                ]
+            },
+            "baseText": {
+
+                "level3": "Un carpintero hace elements_1 que tienen number1 objects_1 cada una."
+            },
+            "baseQuestions": {
+                "level3": [
+                    {
+                        "question": "¿Cuántos objects_1 habrá necesitado para decorar number2 elements_1?",
+                        "answer": "number1 * number2"
+                    }
+                ]
+            },
+            "numberValues": {
+                "level3": {
+                    "number1": {
+                        "type": "range",
+                        "start": 20,
+                        "end": 40,
+                        "step": 1
+                    },
+                    "number2": {
+                        "type": "range",
+                        "start": 10,
+                        "end": 30,
+                        "step": 1
+                    }
+                }
+            },
+            "elements": {
+                "group1": {
+                    "elements": [
+                        {
+                            "text": "puertas",
+                            "id": "puerta"
+                        }
+                    ],
+
+                    "objects": [
+                        {
+                            "text": "adornos",
+                            "id": "adorno"
+                        }
+                    ]
+                }
+            },
+            "integerResults": {
+                "level3": [ ]
+            },
+            "nonIntegerResults": {
+                "level3": [ ]
+            },
+            "positiveResults": {
+                "level3": [ ]
+            },
+            "zeroResults": {
+                "level3": [ ]
+            },
+            "negativeResults": {
+                "level3": [ ]
+            },
+            "zeroOrNegativeResults": {
+                "level3": [ ]
+            },
+            "zeroOrPositiveResults": {
+                "level3": [ ]
+            }
+        },
+        {
+            "title": "Trabajos de jardinería",
+            "variables": {
+                "level3": [
+                    "number1",
+                    "objects_1",
+                ]
+            },
+            "baseText": {
+                 
+                "level3": "En un jardín hay number1 objects_1. En el jardín de al lado hay el doble. Y en una plaza hay el triple que en el segundo jardín."
+            },
+            "baseQuestions": {
+                "level3": [
+                    {
+                        "question": "¿Cuántas objects_1 hay en la plaza?",
+                        "answer": "number1 * 6"
+                    }
+                ]
+            },
+            "numberValues": {
+                "level3": {
+                    "number1": {
+                        "type": "range",
+                        "start": 20,
+                        "end": 40,
+                        "step": 1
+                    }
+                }
+            },
+            "elements": {
+                "group1": {
+                   
+                   
+                    "objects": [
+                        {
+                            "text": "plantas",
+                            "id": "planta"
+                        }
+                    ]
+                }
+            },
+            "integerResults": {
+                "level3": []
+            },
+            "nonIntegerResults": {
+                "level3": []
+            },
+            "positiveResults": {
+                "level3": []
+            },
+            "zeroResults": {
+                "level3": []
+            },
+            "negativeResults": {
+                "level3": []
+            },
+            "zeroOrNegativeResults": {
+                "level3": []
+            },
+            "zeroOrPositiveResults": {
+                "level3": []
+            }
+        }
+    ]
+}

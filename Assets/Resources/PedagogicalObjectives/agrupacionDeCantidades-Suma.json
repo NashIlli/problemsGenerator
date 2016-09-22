@@ -1,0 +1,98 @@
+{
+    "name": "Agrupación de cantidades",
+    "levels": [
+        2
+    ],
+    "schemas": [
+        {
+            "title": "Hora de ahorrar",
+            "variables": {
+                "level2": [
+                    "subject1",
+                    "number1",
+                    "number2",
+                    "number3",
+                    "number4",
+                    "billetes_1",
+                    "elements_1"
+                ]
+            },
+            "baseText": {
+                "level2": "subject1 tenía number1 elements_1 que le dio su mamá. Cuando se le cayó un diente, recibió number2 pesos más. Después cumplió number4 billetes_1 y le regalaron otros number3 pesos."
+            },
+            "baseQuestions": {
+                "level2": [
+                    {
+                        "question": "¿Cuánta plata tiene subject1?",
+                        "answer": "number1 + number2 + number3"
+                    }
+                ]
+            },
+            "numberValues": {
+                "level2": {
+                    "number1": {
+                        "type": "range",
+                        "start": 30,
+                        "end": 120,
+                        "step": 10
+                    },
+                    "number2": {
+                        "type": "range",
+                        "start": 30,
+                        "end": 120,
+                        "step": 10
+                    },
+                    "number3": {
+                        "type": "range",
+                        "start": 30,
+                        "end": 120,
+                        "step": 10
+                    },
+                    "number4": {
+                        "type": "range",
+                        "start": 7,
+                        "end": 12,
+                        "step": 1
+                    }
+                }
+            },
+            "elements": {
+                "group1": {
+                    "elements": [
+                        {
+                            "text": "pesos",
+                            "id": "billete_10"
+                        }
+                    ],
+                    "billetes": [
+                        {
+                            "text": "años",
+                            "id": "billete_100"
+                        }
+                    ]
+                }
+            },
+            "integerResults": {
+                "level2": []
+            },
+            "nonIntegerResults": {
+                "level2": []
+            },
+            "positiveResults": {
+                "level2": []
+            },
+            "zeroResults": {
+                "level2": []
+            },
+            "negativeResults": {
+                "level2": []
+            },
+            "zeroOrNegativeResults": {
+                "level2": []
+            },
+            "zeroOrPositiveResults": {
+                "level2": []
+            }
+        }
+    ]
+}

@@ -59,7 +59,22 @@ namespace Assets.Scripts.AnswerPhase
             for (; j < elementsToDrag.Count; j++)
             {
                 int i = elementsToDrag[j].IndexOf("_");
-                draggableImages[j].sprite = Resources.LoadAll<Sprite>("Elements/" + elementsToDrag[j].Substring(0, i))[int.Parse(elementsToDrag[j].Substring(i + 1))];
+                if (i > 0)
+                {
+                    string path = "Elements/" + elementsToDrag[j].Substring(0, i);
+                    Sprite[] loadAll = Resources.LoadAll<Sprite>(path);
+                    if (loadAll.Length == 0)
+                    {
+                        draggableImages[j].sprite = Resources.Load<Sprite>("Elements/" + elementsToDrag[j]);
+
+                    }
+                    else draggableImages[j].sprite = loadAll[int.Parse(elementsToDrag[j].Substring(i + 1))];
+                }
+                else
+                {
+                    draggableImages[j].sprite = Resources.Load<Sprite>("Elements/" + elementsToDrag[j]);
+                }
+
             }
             for (; j < draggableImages.Length; j++)
             {

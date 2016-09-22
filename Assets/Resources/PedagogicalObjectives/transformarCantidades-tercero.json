@@ -1,0 +1,112 @@
+{
+    "name": "Transformación de cantidades",
+    "levels": [
+        3
+    ],
+    "schemas": [
+        {
+            "title": "Atentos con el vuelto",
+            "variables": {
+                "level3": [
+                    "number1",
+                    "number2",
+                    "number3",
+                    "number4",
+                    "number5",
+                    "objects_1",
+                    "billetes_1",
+                    "elements_1"
+                ]
+            },
+            "baseText": {
+                 
+                "level3": "En una objects_1 hay number1 billetes_1. Por la mañana, se vendieron number2 billetes_1 y number3 elements_1. Por la tarde se vendieron number4 billetes_1 y number5 elements_1. "
+            },
+            "baseQuestions": {
+                "level3": [
+                    {
+                        "question": "¿Cuántos billetes_1 quedaron en la objects_1 al final del día?",
+                        "answer": "number1 - number2 - number4"
+                    }
+                ]
+            },
+            "numberValues": {
+                "level3": {
+                    "number1": {
+                        "type": "range",
+                        "start": 100,
+                        "end": 150,
+                        "step": 1
+                    },
+                    "number2": {
+                        "type": "range",
+                        "start": 2,
+                        "end": 50,
+                        "step": 1
+                    },
+                    "number3": {
+                        "type": "range",
+                        "start": 2,
+                        "end": 50,
+                        "step": 1
+                    },
+                    "number4": {
+                        "type": "range",
+                        "start": 2,
+                        "end": 50,
+                        "step": 1
+                    },
+                    "number5": {
+                        "type": "range",
+                        "start": 2,
+                        "end": 50,
+                        "step": 1
+                    }
+                }
+            },
+            "elements": {
+                "group1": {
+                    "elements": [
+                        {
+                            "text": "medialunas",
+                            "id": "medialuna"
+                        }
+                    ],
+                    "billetes": [
+                        {
+                            "text": "panes",
+                            "id": "pan"
+                        }
+                    ],
+                    "objects": [
+                        {
+                            "text": "canasta",
+                            "id": "canasta"
+                        }
+                    ]
+                }
+            },
+            "integerResults": {
+                "level3": []
+            },
+            "nonIntegerResults": {
+                "level3": []
+            },
+            "positiveResults": {
+                "level3": ["number1 - number2 - number4"]
+            },
+            "zeroResults": {
+                "level3": []
+            },
+            "negativeResults": {
+                "level3": []
+            },
+            "zeroOrNegativeResults": {
+                "level3": []
+            },
+            "zeroOrPositiveResults": {
+                "level3": []
+            }
+        }
+    ]
+}

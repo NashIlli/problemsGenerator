@@ -1,0 +1,105 @@
+{
+    "name": "Repartir cantidades",
+    "levels": [
+        3
+    ],
+    "schemas": [
+        {
+            "title": "Galletitas por el barrio",
+            "variables": {
+                "level3": [
+                    "number1",
+                    "number2",
+                    "number3",
+                    "number4",
+                    "objects_1",
+                    "elements_1",
+                    "subject1"
+                ]
+            },
+            "baseText": {
+                 
+                "level3": "subject1 tiene number1 años. En la cuadra donde vive, hay number2 casas. Con sus number3 amigos, cocinaron number4 objects_1 y quieren repartirlas en todas las casas de la cuadra."
+            },
+            "baseQuestions": {
+                "level3": [
+                    {
+                        "question": "¿Cuántas objects_1 le van a dar a cada elements_1?",
+                        "answer": "number4 / number2"
+                    }
+                ]
+            },
+            "numberValues": {
+                "level3": {
+                    "number1": {
+                        "type": "range",
+                        "start": 8,
+                        "end": 12,
+                        "step": 1
+                    },
+                    "number2": {
+                        "type": "range",
+                        "start": 2,
+                        "end": 9,
+                        "step": 1
+                    },
+                    "number3": {
+                        "type": "range",
+                        "start": 2,
+                        "end": 4,
+                        "step": 1
+                    },
+                    "number4": {
+                        "type": "range",
+                        "start": 300,
+                        "end": 500,
+                        "step": 1
+                    },
+                    "number5": {
+                        "type": "range",
+                        "start": 2,
+                        "end": 50,
+                        "step": 1
+                    }
+                }
+            },
+            "elements": {
+                "group1": {
+                    "elements": [
+                        {
+                            "text": "casa",
+                            "id": "casa"
+                        }
+                    ],
+                    "objects": [
+                        {
+                            "text": "galletitas",
+                            "id": "galletita"
+                        }
+                    ]
+                }
+            },
+            "integerResults": {
+                "level3": ["number4 / number2"]
+            },
+            "nonIntegerResults": {
+                "level3": []
+            },
+            "positiveResults": {
+                "level3": []
+            },
+            "zeroResults": {
+                "level3": []
+            },
+            "negativeResults": {
+                "level3": []
+            },
+            "zeroOrNegativeResults": {
+                "level3": []
+            },
+            "zeroOrPositiveResults": {
+                "level3": []
+            }
+        }
+    ]
+}
