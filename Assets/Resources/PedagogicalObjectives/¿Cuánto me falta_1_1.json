@@ -1,0 +1,103 @@
+{
+    "name": "¿Cuánto me falta? 1",
+    "levels": [
+        1
+    ],
+    "schemas": [
+        {
+            "title": "¿Cuánto me falta? 1",
+            "variables": {
+                "level1": [
+                    "subject1",
+                    "number1",
+                    "number2",
+                    "monedas1_1",
+                    "billete10_1",
+                    "elements_1"
+                ]
+            },
+            "baseText": {
+                "level1": "Un elements_1 cuesta number1 pesos. subject1 sólo tiene billetes de billete10_1 y monedas de monedas1_1."
+            },
+            "baseQuestions": {
+                "level1": [
+                    {
+                        "question": "Si subject1 ya pagó number2, ¿cuánto le falta pagar?",
+                        "answer": "number1 - number2"
+                    }
+                ]
+            },
+            "numberValues": {
+                "level1": {
+                    "number1": {
+                        "type": "range",
+                        "start": 5,
+                        "end": 99,
+                        "step": 1
+                    },
+					"number2": {
+                        "type": "range",
+                        "start": 10,
+                        "end": 51,
+                        "step": 10
+                    }
+                }
+            },
+            "elements": {
+                "group1": { 
+                    "elements": [
+                        {
+                            "text": "chocolate",
+                            "id": "barras de chocolate"
+                        },
+						{
+                            "text": "helado",
+                            "id": "helados"
+                        },
+						{
+                            "text": "chupetín",
+                            "id": "chupetines"
+                        },
+						{
+                            "text": "libro",
+                            "id": "libros"
+                        }
+                    ],
+                    "billete10": [
+                        {
+                            "text": "$10",
+                            "id": "billete10pesos"
+                        }
+                    ],
+                    "monedas1": [
+                        {
+                            "text": "$1",
+                            "id": "1pesocoin"
+                        }
+                    ]
+                }
+            },
+            "integerResults": {
+                "level1": []
+            },
+            "nonIntegerResults": {
+                "level1": []
+            },
+            "positiveResults": {
+                "level1": ["number1 - number2"]
+            },
+            "zeroResults": {
+                "level1": []
+            },
+            "negativeResults": {
+                "level1": []
+            },
+            "zeroOrNegativeResults": {
+                "level1": []
+            },
+            "zeroOrPositiveResults": {
+                "level1": []
+            }
+        }
+    ]
+}

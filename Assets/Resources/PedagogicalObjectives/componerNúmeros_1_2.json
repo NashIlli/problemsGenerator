@@ -1,0 +1,110 @@
+{
+    "name": "Componer números 2",
+    "levels": [
+        1
+    ],
+    "schemas": [
+        {
+            "title": "Componer números 2",
+            "variables": {
+                "level1": [
+                    "subject1",
+                    "number1",
+                    "monedas1_1",
+                    "billete10_1",
+                    "billete5_1",
+                    "billete2_1",
+                    "elements_1"
+                ]
+            },
+            "baseText": {
+                "level1": "subject1 se compró un elements_1. Le costó number1 pesos. subject1 sólo tiene billetes de billete10_1, de billete5_1, de billete2_1 y monedas de monedas1_1."
+            },
+            "baseQuestions": {
+                "level1": [
+                    {
+                        "question": "¿Al menos cuántas monedas de monedas1_1 debe utilizar?",
+                        "answer": "number1 % 10"
+                    }
+                ]
+            },
+            "numberValues": {
+                "level1": {
+                    "number1": {
+                        "type": "range",
+                        "start": 5,
+                        "end": 99,
+                        "step": 1
+                    }
+                }
+            },
+            "elements": {
+                "group1": { 
+                    "elements": [
+                        {
+                            "text": "chocolate",
+                            "id": "barras de chocolate"
+                        },
+						{
+                            "text": "helado",
+                            "id": "helados"
+                        },
+						{
+                            "text": "chupetín",
+                            "id": "chupetines"
+                        },
+						{
+                            "text": "libro",
+                            "id": "libros"
+                        }
+                    ],
+                    "billete10": [
+                        {
+                            "text": "$10",
+                            "id": "billete10pesos"
+                        }
+                    ],
+					"billete5": [
+                        {
+                            "text": "$5",
+                            "id": "billete5pesos"
+                        }
+                    ],
+					"billete2": [
+                        {
+                            "text": "$2",
+                            "id": "billete2pesos"
+                        }
+                    ],
+                    "monedas1": [
+                        {
+                            "text": "$1",
+                            "id": "1pesocoin"
+                        }
+                    ]
+                }
+            },
+            "integerResults": {
+                "level1": []
+            },
+            "nonIntegerResults": {
+                "level1": []
+            },
+            "positiveResults": {
+                "level1": []
+            },
+            "zeroResults": {
+                "level1": []
+            },
+            "negativeResults": {
+                "level1": []
+            },
+            "zeroOrNegativeResults": {
+                "level1": []
+            },
+            "zeroOrPositiveResults": {
+                "level1": []
+            }
+        }
+    ]
+}
